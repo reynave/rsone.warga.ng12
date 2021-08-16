@@ -1,0 +1,35 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+            <div class="card">
+                <div class="p-2">
+                  <strong>Tunggakan Billing</strong>
+                   <div class="mt-1">
+                    <table class="table table-sm border">
+                        <tbody>
+                            <ng-container *ngFor="let x of items_list; let i = index;">
+                                <tr *ngIf="i < 68">
+                                    <td *ngIf="x != 0">
+                                       <div class="mb-2">{{label_list[i] | date:'MMM-yyyy'}}</div><!--https://angular.io/api/common/DatePipe-->
+                                       <div><strong>Rp {{x | number}}</strong></div>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                   </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>

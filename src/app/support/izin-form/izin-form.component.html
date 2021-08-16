@@ -1,0 +1,124 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+          
+            <h5>New Support Request (Izin)</h5>
+
+            <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+             <div class="mb-3">
+                   <label for="text" class="form-label">CASE Number</label>
+                   <p>{{ticketNumber}}</p>
+             </div>
+
+             <div class="mb-3">
+                 <label for="select" class="form-label">Permohonan</label>
+                 <select required [(ngModel)]="modelform.f1" name="f1" #f1="ngModel" (change)="onAutoSaveForm('f1',modelform.f1)">
+                    <option value="Izin Masuk">Izin Masuk</option>
+                    <option value="Izin Keluar">Izin Keluar</option>
+                    <option value="Izin Kegiatan">Izin Kegiatan</option>
+                </select>
+                <p id="f1_saved" style="display:none">Saved...</p>
+             </div>
+
+              <!--<div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Subject</label>
+                  <input type="text" class="form-control" id="subject" required [(ngModel)]="model.subject" name="subject" #subject="ngModel" (change)="onAutoSave('subject',model.subject)">
+                  <p id="subject_saved" style="display:none">Saved...</p>
+                  <div [hidden]="subject.valid || subject.pristine" class="mt-2 text-danger">
+                        subject is required
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Note</label>
+                  <input id="note" type="text" name="note" required [(ngModel)]="model.note" class="form-control" #note="ngModel" (change)="onAutoSave('note',model.note)"/> 
+                  <p id="note_saved" style="display:none">Saved...</p>
+                  <div [hidden]="note.valid || note.pristine" class="mt-2 text-danger">
+                        note is required
+                  </div>
+              </div>-->
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="f2" readonly [(ngModel)]="modelform.f2" name="f2" #f2="ngModel" (change)="onAutoSaveForm('f2',modelform.f2)">
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">No. KTP</label>
+                  <input type="text" class="form-control" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f3="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)">
+                  <p id="f3_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f3.valid || f3.pristine" class="mt-2 text-danger">
+                        no ktp is required
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">No. TLP</label>
+                  <input type="text" class="form-control" id="f4" required [(ngModel)]="modelform.f4" name="f4" #f4="ngModel" (change)="onAutoSaveForm('f4',modelform.f4)">
+                  <p id="f4_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f4.valid || f4.pristine" class="mt-2 text-danger">
+                        no tlp is required
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Selaku</label>
+                  <input type="text" class="form-control" id="f5" required [(ngModel)]="modelform.f5" name="f5" #f5="ngModel" (change)="onAutoSaveForm('f5',modelform.f5)">
+                  <p id="f5_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f9.valid || f9.pristine" class="mt-2 text-danger">
+                        selaku is required
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Unit</label>
+                  <input type="text" class="form-control" id="f6" required [(ngModel)]="modelform.f6" name="f6" #f6="ngModel" (change)="onAutoSaveForm('f6',modelform.f6)">
+                  <p id="f6_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f6.valid || f6.pristine" class="mt-2 text-danger">
+                        unit is required
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Instansi</label>
+                  <input type="text" class="form-control" id="f7" required [(ngModel)]="modelform.f7" name="f7" #f7="ngModel" (change)="onAutoSaveForm('f7',modelform.f7)">
+                  <p id="f7_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f7.valid || f7.pristine" class="mt-2 text-danger">
+                        instansi is required
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Keperluan</label>
+                  <input type="text" class="form-control" id="f8" required [(ngModel)]="modelform.f8" name="f8" #f8="ngModel" (change)="onAutoSaveForm('f8',modelform.f8)">
+                  <p id="f8_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f8.valid || f8.pristine" class="mt-2 text-danger">
+                        keperluan is required
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Jenis Barang</label>
+                  <textarea class="form-control" id="f9" required [(ngModel)]="modelform.f9" name="f9" #f9="ngModel" cols="10" rows="8" (change)="onAutoSaveForm('f9',modelform.f9)"></textarea>
+                  <p id="f9_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f9.valid || f9.pristine" class="mt-2 text-danger">
+                        jenis barang is required
+                  </div>
+              </div>
+
+              <button type="button" class="btn btn-outline-secondary" (click)="back()">Cancel</button>
+              &nbsp;
+              <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+            </form>
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>

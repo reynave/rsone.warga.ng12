@@ -1,0 +1,9 @@
+.sidebar .sidebar-body .nav .nav-item.nav-category:not(:first-child) {
+    margin-top: 5px;
+}
+
+.sidebar .sidebar-body .nav .nav-item.nav-category {
+    
+     height: auto !important; 
+}
+ 

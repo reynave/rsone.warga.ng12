@@ -1,0 +1,22 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+          
+            <h5>{{items.name}}</h5>
+
+            <p class="text-small">By : {{items.user_name}}, {{items.input_date | date:'H/MM/yyyy hh:mm:ss'}}</p>
+
+            <article [innerHtml]="items.content"></article>
+
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>

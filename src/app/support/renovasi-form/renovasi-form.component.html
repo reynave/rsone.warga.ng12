@@ -1,0 +1,117 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+          
+            <h5>New Support Request (Renovasi)</h5>
+
+            <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+             <div class="mb-3">
+                   <label for="text" class="form-label">CASE Number</label>
+                   <p>{{ticketNumber}}</p>
+             </div>
+
+             <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Permohonan</label>
+                  <p>Renovasi</p>
+              </div>
+
+              <!--<div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Subject</label>
+                  <input type="text" class="form-control" id="subject" required [(ngModel)]="model.subject" name="subject" #subject="ngModel" (change)="onAutoSave('subject',model.subject)">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label">Note</label>
+                  <input id="note" type="text" name="note" required [(ngModel)]="model.note" class="form-control" #note="ngModel" (change)="onAutoSave('note',model.note)"/>
+                  <p id="note_saved" style="display:none">Saved...</p>
+                  <div [hidden]="note.valid || note.pristine" class="mt-2 text-danger">
+                        note is required
+                  </div>
+              </div>-->
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="f1" readonly [(ngModel)]="modelform.f1" name="f1" #f1="ngModel" (change)="onAutoSaveForm('f1',modelform.f1)">
+                  <p id="f1_saved" style="display:none">Saved...</p>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Alamat</label>
+                  <textarea class="form-control" id="f2" required [(ngModel)]="modelform.f2" name="f2" #f2="ngModel" cols="10" rows="8" (change)="onAutoSaveForm('f2',modelform.f2)"></textarea>
+                  <p id="f2_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f2.valid || f2.pristine" class="mt-2 text-danger">
+                        name is required
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">No. TLP</label>
+                  <input type="text" class="form-control" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f3="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)">
+                  <p id="f3_saved" style="display:none">Saved...</p>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Jenis Renovasi</label>
+                  <textarea class="form-control" id="f4" required [(ngModel)]="modelform.f4" name="f4" #f4="ngModel" cols="10" rows="8" (change)="onAutoSaveForm('f4',modelform.f4)"></textarea>
+                  <p id="subject_saved" style="display:none">Saved...</p>
+                  <div [hidden]="f4.valid || f4.pristine" class="mt-2 text-danger">
+                        jenis renovasi is required
+                  </div>
+              </div>
+
+              <p><strong>Pemborong Mandor</strong><p>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="f5" required [(ngModel)]="modelform.f5" name="f5" #f5="ngModel" (change)="onAutoSaveForm('f5',modelform.f5)">
+                  <p id="f5_saved" style="display:none">Saved...</p>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Alamat</label>
+                  <input type="text" class="form-control" id="f6" required [(ngModel)]="modelform.f6" name="f6" #f6="ngModel" (change)="onAutoSaveForm('f6',modelform.f6)">
+                  <p id="f6_saved" style="display:none">Saved...</p>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">KTP</label>
+                  <input type="text" class="form-control" id="f7" required [(ngModel)]="modelform.f7" name="f3" #f7="ngModel" (change)="onAutoSaveForm('f7',modelform.f7)">
+                  <p id="f7_saved" style="display:none">Saved...</p>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Telephone / HP</label>
+                  <input type="text" class="form-control" id="f8" required [(ngModel)]="modelform.f8" name="f8" #f3="ngModel" (change)="onAutoSaveForm('f8',modelform.f8)">
+                  <p id="f8_saved" style="display:none">Saved...</p>
+              </div>
+
+              <p><strong>Waktu Renovasi</strong><p>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Dari tanggal</label>
+                  <input type="date" class="form-control" id="f9" required [(ngModel)]="modelform.f9" name="f9" #f9="ngModel" maxlength="10" (change)="onAutoSaveForm('f9',modelform.f9)">
+                  <p id="f9_saved" style="display:none">Saved...</p>
+              </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Sampai tanggal</label>
+                  <input type="date" class="form-control" id="f10" required [(ngModel)]="modelform.f10" name="f10" #f10="ngModel" maxlength="10" (change)="onAutoSaveForm('f10',modelform.f10)">
+                  <p id="f10_saved" style="display:none">Saved...</p>
+              </div>
+
+              <button type="button" class="btn btn-outline-secondary" (click)="back()">Cancel</button>
+              &nbsp;
+              <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+            </form>
+        </div>
+
+        <app-footer></app-footer>
+
+    </div>
+</div>

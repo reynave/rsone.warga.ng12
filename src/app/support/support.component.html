@@ -1,0 +1,213 @@
+<div class="main-wrapper">
+
+    <app-leftside></app-leftside>
+
+    <div class="page-wrapper">
+
+        <app-topside></app-topside>
+
+        <div class="page-content">
+          <ng-container *ngIf="showList">
+            <div *ngFor="let item of items" class="card mb-2">
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col-10">
+                        <h6><a href="javascript:;" (click)="show_detail(item.supportFormId,item.ticketNumber); obj = item;"> Ticket #{{item.ticketNumber}} ({{item.form_support}})</a></h6>
+                     </div>
+                     <div class="col-2">
+                        <h6 class="text-right"><span class="badge bg-primary text-light">{{item.status_name}}</span></h6>
+                     </div>
+                  </div>
+                  <h5 class="card-title mb-2 text-muted">{{item.subject}}</h5>
+                  <h6 class="card-subtitle">Request by: {{item.request_name}}</h6>
+                  <p class="card-text">{{item.input_date | date:'dd/MM/yyyy H:mm:ss'}}</p>
+               </div>
+            </div>
+            <div *ngIf="items.length == 0">
+            <div class="card mb-2">
+               <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-muted">No support request</h6>
+               </div>
+            </div>
+            </div>
+          </ng-container>
+          <div class="card" *ngIf="showDetail">
+              <div class="card-body">
+                <h5 class="mb-2">Detail Support Request</h5>
+                <form #myFormUpdate="ngForm">
+                 <div class="mb-1 bb-silver">
+                     <label for="text" class="form-label text-bold">CASE Number</label>
+                     <input type="text" readonly class="form-control-plaintext" value="{{obj.ticketNumber}}"/>
+                 </div>
+                 <div *ngIf="obj.supportFormId == '1'"><!-- GENERAL -->
+		   <div class="mb-1 bb-silver">
+		       <label for="select" class="form-label  text-bold text-bold">Permohonan</label>
+		       <div class="text-readonly">General</div>
+		   </div>
+
+                   <div class="mb-1 bb-silver">
+                      <label for="text" class="form-label text-bold">Title</label>
+                      <input type="text" readonly class="form-control-plaintext" value="{{ obj.subject}}"/>
+                   </div>
+                   <div class="mb-1 bb-silver">
+                      <label for="textarea" class="form-label text-bold">Description</label>
+                      <div class="text-readonly">{{ obj.note}}</div>
+                   </div>
+                   <div class="mb-1 bb-silver">
+                      <label for="status_name" class="form-label text-bold">Status</label>
+                      <input type="text" readonly class="form-control-plaintext" value="{{obj.status_name}}"/>
+                   </div>
+                   </div>
+
+                   <div *ngIf="obj.supportFormId == '2'"><!-- IZIN -->
+
+		     <div class="mb-1 bb-silver">
+		         <label for="select" class="form-label  text-bold text-bold">Permohonan</label>
+		         <div class="text-readonly">{{ obj.f1}}</div>
+		     </div>
+
+		      <div class="mb-1 bb-silver">
+		         <label for="exampleFormControlInput1" class="form-label  text-bold text-bold">Nama</label>
+		         <div class="text-readonly">{{ obj.f2}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		         <label for="exampleFormControlInput1" class="form-label  text-bold">No. KTP</label>
+		         <div class="text-readonly">{{ obj.f3}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		         <label for="exampleFormControlInput1" class="form-label  text-bold">No. TLP</label>
+		         <div class="text-readonly">{{ obj.f4}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Selaku</label>
+		          <div class="text-readonly">{{ obj.f5}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Unit</label>
+		          <div class="text-readonly">{{ obj.f6}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Instansi</label>
+		          <div class="text-readonly">{{ obj.f7}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Keperluan</label>
+		          <div class="text-readonly">{{ obj.f8}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Jenis Barang</label>
+		          <div class="text-readonly">{{ obj.f9}}</div>
+		      </div>
+
+                   </div>
+
+                   <div *ngIf="obj.supportFormId == '4'"><!-- RENOVASI -->
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Permohonan</label>
+			  <div class="text-readonly">{{ obj.subject}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Nama</label>
+			  <div class="text-readonly">{{ obj.f1}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Alamat</label>
+			  <div class="text-readonly">{{ obj.f2}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">No. TLP</label>
+			  <div class="text-readonly">{{ obj.f3}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Jenis Renovasi</label>
+			  <div class="text-readonly">{{ obj.f4}}</div>
+		      </div>
+
+		      <p><strong>Pemborong Mandor</strong><p>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Nama</label>
+			  <div class="text-readonly">{{ obj.f5}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Alamat</label>
+			  <div class="text-readonly">{{ obj.f6}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">KTP</label>
+			  <div class="text-readonly">{{ obj.f7}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Telephone / HP</label>
+			  <div class="text-readonly">{{ obj.f8}}</div>
+		      </div>
+
+		      <p><strong>Waktu Renovasi</strong><p>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Dari tanggal</label>
+			  <div class="text-readonly">{{ obj.f9}}</div>
+		      </div>
+
+		      <div class="mb-1 bb-silver">
+		          <label for="exampleFormControlInput1" class="form-label  text-bold">Sampai tanggal</label>
+			  <div class="text-readonly">{{ obj.f10}}</div>
+		      </div>
+
+                   </div>
+
+                   <div class="mb-1">
+                      <label for="input_date" class="form-label text-bold">Created Date {{obj.SupportFormId}}</label>
+                      <input type="text" readonly class="form-control-plaintext" value="{{obj.input_date | date:'dd/MM/yyyy H:mm:ss'}}"/>
+                   </div>
+                   <div class="mb-1" *ngIf="obj.approval_status == 1 || is_read">
+                       <p class="text-success"><i class="fas fa-user-check"></i> Read by RT {{read_by}} {{obj.read_by}}</p>
+                   </div>
+                   <div class="d-grid text-center"><!-- d-grid gap-2 col-6 mx-auto -->
+                      <button type="button" class="btn btn-primary" (click)="show_list()">Back</button>&nbsp;
+                      <button *ngIf="id_user_access == 9697 && (obj.approval_status == null || obj.approval_status == 0) && !is_read" class="btn btn-success" (click)="rt_read(obj)"><i class="fas fa-check"></i> RT Read</button>&nbsp;
+                      <button *ngIf="id_user_access == 9698 && (obj.approval_status == null || obj.approval_status == 0)" class="btn btn-success" (click)="rt_approved(obj)"><i class="fas fa-check"></i> RT Approved</button>&nbsp;
+                      <a *ngIf="obj.status_name != 'Draft'" role="button" class="btn btn-info text-light" (click)="goToLink(new_tab)"><i class="fas fa-print"></i> Print</a>
+                   </div>
+                </form>
+             </div>
+          </div>
+         <p class="box-bottom"></p>
+    </div>
+</div>
+<div *ngIf="showButton" class="p-2 button-bottom text-center border-top shadow-sm">
+    <button *ngIf="action.support" class="btn btn-primary" (click)="open(modalNewRequest)">New Support Request</button>
+</div>
+
+
+<ng-template #modalNewRequest let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Support Request</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+       <p><button class="btn btn-primary btn-block" (click)="onCreateTicket(1)">General</button></p>
+       <p><button class="btn btn-primary btn-block" (click)="onCreateTicket(2)">Izin</button></p>
+       <p><button class="btn btn-primary btn-block" (click)="onCreateTicket(4)">Renovasi</button></p>
+    </div>
+    <div class="modal-footer">
+       <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Close</button>
+    </div>
+</ng-template>
