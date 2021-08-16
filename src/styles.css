@@ -1,6 +1,27 @@
 strong{
     font-family: 'Roboto', sans-serif;
 }
+.navgatorTop{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    background: #fff;
+    color: #0C1427;
+    z-index: 99;
+    padding: 13px 0px;
+} 
+
+.page-wrapper{
+    margin-top: 50px;
+}
+
+.main-wrapper .page-wrapper {
+    min-height: 100vh !important;
+    background: #f9fafb;
+    width: 100% !important;
+    margin-left: 0px !important;
+}
 .navbar {
     position: fixed !important;
     

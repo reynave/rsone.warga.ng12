@@ -1,65 +1,13 @@
-<!-- partial:partials/_navbar.html -->
-<nav class="navbar">
-    <a href="#" class="sidebar-toggler">
-        <i data-feather="menu"></i>
-    </a>
-    <div class="navbar-content">
-        <form class="search-form">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <i data-feather="search"></i>
-                    </div>
-                </div>
-                <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+<div class="navgatorTop border-bottom shadow-sm">
+    <div class="container-fluid"> 
+        <div class="row no-gutters ">
+            <div class="col-2 ">
+                <a href="javascript:;" (click)="back();"><img src="./assets/images/arrow-left.svg" width="20"></a>
             </div>
-        </form>
-        <ul class="navbar-nav">
-
-
-            <li class="nav-item dropdown nav-profile">
-
-                <a class="nav-link mx-2" href="javascript:;">
-                    <span [hidden]="!status">
-                        <i data-feather="wifi"></i>
-                    </span>
-
-                    <span [hidden]="status">
-                        <i data-feather="wifi-off"></i>
-                    </span>
-                    <div class="indicator" [hidden]="!status">
-                        <div class="circle"></div>
-                    </div>
-                </a>
-
-
-                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <small> {{obj['name']}}</small> &nbsp; <img src="./assets/images/icons8-user-male.svg" width="30" alt="profile" class="shadow-sm border">
-                </a>
-                <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                  
-                    <div class="dropdown-body">
-                        <ul class="profile-nav p-0">
-                            <li class="nav-item">
-                         
-                                <a [routerLink]="[ '/profile' ]" class="nav-link">
-                                    <i data-feather="edit"></i>
-                                    <span>Edit Profile</span>
-                                </a>
-                            </li>
-                            
-                            <hr class="dropdown-divider">
-                            <li class="nav-item">
-                                <a href="javascript:;" class="nav-link" (click)="logout();">
-                                    <i data-feather="log-out"></i>
-                                    <span>Sign out</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-        </ul>
+            <div class="col-10">
+                <strong>{{active}}</strong>
+            </div>
+        </div>
     </div>
-</nav>
-<!-- partial -->
+</div>
+

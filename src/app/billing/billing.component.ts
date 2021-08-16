@@ -13,7 +13,7 @@ declare var $ : any;
   styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-
+  loading:boolean=true;
   items: any = [];
   labels: any = [];
   month_list: any = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -44,13 +44,8 @@ export class BillingComponent implements OnInit {
            this.label_list.push(this.labels[a]);
            this.items_list.push(this.items[a]);
         } 
-        console.log(this.label_list);
-        console.log(this.items_list);
-        /*this.items = this.items.filter((item: any) => {
-           let result: any;
-           result = item[0] != 'NO' && item[0] != '' &&  item[1] == this.getId.house;
-           return result;
-        });*/
+        console.log(data); 
+        this.loading=false;
       },
       error => {
         console.log(error);

@@ -5,26 +5,13 @@ import { environment } from 'src/environments/environment';
 import { ConfigService } from 'src/app/service/config.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-
-declare var $: any;
-
-/*export class Model {
-  constructor(
-    public id: number,
-    public ticketNumber: string,
-    public subject: string,
-    public note: string,
-    public supportStatusId: number,
-    public supportFormId: number
-  ) { } 
-}*/
-
+ 
 @Component({
-  selector: 'app-support',
-  templateUrl: './support.component.html',
-  styleUrls: ['./support.component.css']
+  selector: 'app-support-detail',
+  templateUrl: './support-detail.component.html',
+  styleUrls: ['./support-detail.component.css']
 })
-export class SupportComponent implements OnInit {
+export class SupportDetailComponent implements OnInit {
   navgatorTop : boolean = true;
   items: any = [];
   fwd_obj: any = JSON.parse(localStorage.getItem("forwardClient_obj")) || '{}';
@@ -195,4 +182,5 @@ export class SupportComponent implements OnInit {
   back(){
     window.history.back();
   }
+
 }

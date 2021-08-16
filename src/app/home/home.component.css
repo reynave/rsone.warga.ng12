@@ -1,0 +1,22 @@
+header{
+    /* background: url('./../../assets/bgn/a1.jpg')  #ffffff center bottom no-repeat; */
+    background-size: cover;
+    background-position-y: -34px;
+    padding-bottom: 39px  !important;
+}
+
+.warp-header{
+    max-width: 90%;
+    margin: 0 auto;
+}
+.warp-header small{
+    font-weight: bolder;
+}
+
+.rounded-3x{
+    border-radius: .5rem!important;
+}
+
+body{
+    background: #f00;
+}

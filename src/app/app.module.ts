@@ -27,6 +27,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { IzinFormComponent } from './support/izin-form/izin-form.component';
 import { RenovasiFormComponent } from './support/renovasi-form/renovasi-form.component';
+import { SupportDetailComponent } from './support/support-detail/support-detail.component';
+import { HomeComponent } from './home/home.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -56,7 +58,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     ProfileComponent,
     ProfileEditComponent,
     IzinFormComponent,
-    RenovasiFormComponent
+    RenovasiFormComponent,
+    SupportDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

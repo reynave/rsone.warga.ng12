@@ -14,13 +14,19 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
 import { SupportFormComponent } from './support/support-form/support-form.component';
 import { IzinFormComponent } from './support/izin-form/izin-form.component';
 import { RenovasiFormComponent } from './support/renovasi-form/renovasi-form.component';
+import { SupportDetailComponent } from './support/support-detail/support-detail.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'relogin', component: ReloginComponent },
   { path: 'login', component: LoginComponent }, 
  
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"home"} },
+ 
   { path: 'support', component: SupportComponent, canActivate: [AuthGuard], data:{active:"support"} },
+  { path: 'support/:ticket', component: SupportDetailComponent, canActivate: [AuthGuard], data:{active:"support"} },
+ 
   { path: 'support/form', component: SupportFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
   { path: 'support/form/izin', component: IzinFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
   { path: 'support/form/renovasi', component: RenovasiFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
