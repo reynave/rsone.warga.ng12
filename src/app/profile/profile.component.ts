@@ -78,5 +78,18 @@ export class ProfileComponent implements OnInit {
      window.history.back();
   }
 
+  logout(){
+    this.http.get<any>(environment.api + "profile/logout", {
+      headers: this.configService.headers()
+    }).subscribe(
+      data => {  
+          this.configService.removeToken();
+          this.router.navigate(['relogin']);
+      },
+      error => {
+        console.log(error); 
+      },
 
+    );
+  }
 }
