@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
 strong{
     font-family: 'Roboto', sans-serif;
 }
@@ -38,7 +39,7 @@ select.form-control, select {
 }
 
 .lh-0 {
-    line-height: 110%;
+    line-height: 100%;
 }
 
 thead td{

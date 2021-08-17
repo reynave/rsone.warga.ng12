@@ -209,15 +209,15 @@
 
 <ng-template #modalNewRequest let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">New Support Request</h4>
+        <strong class="modal-title" id="modal-basic-title">New Support Request</strong>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <p><button class="btn btn-primary btn-block" (click)="onCreateTicket(1)">General</button></p>
-        <p><button class="btn btn-primary btn-block" (click)="onCreateTicket(2)">Izin</button></p>
-        <p><button class="btn btn-primary btn-block" (click)="onCreateTicket(4)">Renovasi</button></p>
+        <p><button class="btn btn-warning btn-block rounded-pill py-3" (click)="onCreateTicket(1)"><b>General</b></button></p>
+        <p><button class="btn btn-warning btn-block rounded-pill py-3" (click)="onCreateTicket(2)"><b>Izin</b></button></p>
+        <p><button class="btn btn-warning btn-block rounded-pill py-3" (click)="onCreateTicket(4)"><b>Renovasi</b></button></p>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Close</button>

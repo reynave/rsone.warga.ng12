@@ -1,13 +1,13 @@
-
 <header class="pt-3 ">
     <div class="container-fluid">
         <div class="row">
             <div class="col-6">
-                <strong class="m-0 ">test</strong>
-                <div class="  lh-1"><small>ver 1.0.5</small></div>
+                <strong class="m-0  text-white">Residence One</strong>
+                <div class="  lh-1 text-white"><small>ver 1.0.5</small></div>
             </div>
             <div class="col-6 text-right">
-                <div class="">
+                <div [routerLink]="[ '/profile' ]">
+
                     <strong>profile.name</strong>
                     <div class="lh-1"><small>profile.level</small></div>
                 </div>
@@ -20,23 +20,23 @@
             <div class="row">
 
                 <div class="col-4 text-center">
-                    <a href="javascript:;" [routerLink]="[ '/topup' ]">
-                        <img src="./assets/icon/icons8-plus-96.png" width="40%">
-                        <div class="lh-1"> <small> Support </small></div>
+                    <a href="javascript:;" [routerLink]="[ '/support' ]">
+                        <img src="./assets/images/icons8-ticket-58.png" width="40%">
+                        <div class="lh-1"> <small> <b>Support</b> </small></div>
                     </a>
                 </div>
 
                 <div class="col-4 text-center">
-                    <a [routerLink]="[ '/transaction' ]">
-                        <img src="./assets/icon/icons8-purchase-order-96.png" width="40%">
-                        <div class="lh-1"> <small> Billing  </small> </div>
+                    <a href="javascript:;" [routerLink]="[ '/billing' ]">
+                        <img src="./assets/images/icons8-bill-58.png" width="40%">
+                        <div class="lh-1"> <small> <b>Billing</b> </small> </div>
                     </a>
                 </div>
 
                 <div class="col-4 text-center">
-                    <a href="javascript:;" [routerLink]="[ '/history' ]">
-                        <img src="./assets/icon/icons8-time-machine-96.png" width="40%">
-                        <div class="lh-1"> <small> Panic Button</small></div>
+                    <a href="javascript:;" (click)="onPanic();">
+                        <img src="./assets/images/icons8-brake-warning-48.png" width="40%">
+                        <div class="lh-1"> <small><b> Panic</b></small></div>
                     </a>
                 </div>
             </div>
@@ -45,27 +45,59 @@
     </div>
 
 </header>
-<div class="container">
-     
-    <div class="row my-4">
 
-        <div class="col-3 text-center">
-            <a href="javascript:;" [routerLink]="[ '/packages' ]">
-                <img src="./assets/icon/icons8-bot-96.png" width="100%" class="bg-light  border rounded-pill p-1">
-                <div class="lh-1"><small>Packages </small></div>
-            </a>
+<div class="main-wrapper mt-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-2">
+                <b>Support Ticket</b>
+            </div>
+
         </div>
 
-       
-
-        <div class="col-3  text-center">
-            <a href="javascript:;" [routerLink]="[ '/report/profit/' ]">
-                <img src="./assets/icon/icons8-area-chart-96.png" width="100%" class="bg-light  border rounded-pill p-1">
-                <div class="lh-1">
-                    <small>Profit Sharing</small>
+        <div class="row no-gutters">
+            <div class="col-4">
+                <div class="alert alert-warning border shadow-sm mx-1 text-center">
+                    <h4 class="lh-0">1</h4>
+                    <small class="lh-0">Draft</small>
                 </div>
-            </a>
+            </div>
+            <div class="col-4">
+                <div class="alert alert-success  border shadow-sm mx-1 text-center">
+                    <h4 class="lh-0">13</h4>
+                    <small class="lh-0">Open</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="alert alert-primary  border shadow-sm mx-1 text-center">
+                    <h4 class="lh-0">4</h4>
+                    <small class="lh-0">Process</small>
+                </div>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-12 mb-2">
+                <b>Latest Article</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="border shadow-sm rounded p-2 mb-2">
+                    <b>CMS</b>
+                    <p>100 character description</p>
+                </div>
+                <div class="border shadow-sm rounded p-2 mb-2">
+                    <b>CMS</b>
+                    <p>100 character description</p>
+                </div>
+                <div class="border shadow-sm rounded p-2 mb-2">
+                    <b>CMS</b>
+                    <p>100 character description</p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 </div>

@@ -25,30 +25,31 @@ export class SupportDetailComponent implements OnInit {
   is_approved: boolean = false;
   action: any = [];
   read_by: string;
-
+  ticket :string;
   constructor(
     private modalService: NgbModal,
     private http: HttpClient,
     private configService: ConfigService,
     private router: Router,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private activatedRoute : ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.getHttp();
+    this.ticket = this.activatedRoute.snapshot.paramMap.get('ticket');
+    this.getHttp(this.ticket);
     this.id_user_access = this.fwd_obj.id_user_access;
   }
 
-  new_support() {
-    this.router.navigate(['/support/form']);
-  }
-
-  getHttp() {
-    this.http.get<any>(environment.api + "support/index/" + ((this.fwd_obj != "" || this.fwd_obj != undefined) ? this.fwd_obj.name : ''), {
+ 
+  getHttp(ticket) {
+    console.log(environment.api + "support/detail/" +ticket);
+    this.http.get<any>(environment.api + "support/detail/" +ticket, {
       headers: this.configService.headers()
     }).subscribe(
       data => {
         this.items = data['items'];
+        this.obj = data['items'][0];
         console.log(data);
       },
       error => {
@@ -70,35 +71,7 @@ export class SupportDetailComponent implements OnInit {
 
   }
 
-  onCreateTicket(param: number) {
-
-    const body = {
-      data: { supportFormId: param, userId: this.fwd_obj.name, subject: "", note: "" }, // userId
-    }
-
-    console.log(body);
-
-    this.http.post<any>(environment.api + "support/onSelectRequest", body, {
-      headers: this.configService.headers()
-    }).subscribe(
-      data => {
-        this.modalService.dismissAll();
-        if (param == 1) {
-          this.new_support();
-        }
-        else if (param == 2) { // Izin
-          this.router.navigate(['/support/form/izin']);
-        }
-        else if (param == 4) { // Renovasi
-          this.router.navigate(['/support/form/renovasi']);
-        }
-      },
-      error => {
-        console.log(error);
-      },
-
-    );
-  }
+ 
 
   rt_read(obj: any) {
     const body = {
@@ -157,7 +130,7 @@ export class SupportDetailComponent implements OnInit {
     else if (supportFormId == 1) {
       fro = 'deposit';
     }
-    this.new_tab = 'https://forwards.or.id/admin.api/formresidenceone/index/' + fro + '?ticket=' + (ticketNumber ? ticketNumber : '') + '&action=print';
+    this.new_tab =  environment.apiAdmin + fro + '?ticket=' + (ticketNumber ? ticketNumber : '') + '&action=print';
     this.showList = false;
     this.showDetail = true;
     this.showButton = false;

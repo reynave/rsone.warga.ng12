@@ -4,6 +4,9 @@
 
     <div class="page-wrapper">
         <div class="container-fluid my-2">
+           <div class="my-2"  [hidden]="loading">
+            <strong>Tagihan yang belum dibayarkan.</strong> 
+           </div>
             <span *ngFor="let x of items_list; let i = index;"> 
                 <div class=" border p-2 bg-{{i%2==0 ?'white':'light'}} shadow-sm" *ngIf="i < 68 && x != 0">
                     <div class="row">
