@@ -9,7 +9,10 @@ import { ConfigService } from '../service/config.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  user: any = [];
+  support: any = [];
+  cms: any = [];
+  
   constructor( 
     private http: HttpClient,
     private configService: ConfigService, 
@@ -17,12 +20,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.httpGet();
+    this.user =  this.configService.getObj();
   }
   httpGet(){
-    this.http.get<any>(environment.api + "home/", {
+    this.http.get<any>(environment.api + "home/dashboard", {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
+        this.support = data['support'];
+        this.cms = data['cms'];
         console.log(data);
       },
       error => {

@@ -37,9 +37,10 @@
                     <div *ngIf="obj.supportFormId == '2'">
                         <!-- IZIN -->
 
-                        <div class="mb-1 bb-silver">
-                            <label for="select" class="form-label  text-bold text-bold">Permohonan</label>
-                            <div class="text-readonly">{{ obj.f1}}</div>
+                        <div class="mb-2">
+                            <label for="select" class="form-label  text-bold text-bold">Permohonan</label>  
+                            <input type="text" class="form-control form-control-sm" value="{{ obj.f1}}" [readonly]="false">
+
                         </div>
 
                         <div class="mb-1 bb-silver">

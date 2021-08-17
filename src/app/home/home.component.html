@@ -7,9 +7,9 @@
             </div>
             <div class="col-6 text-right">
                 <div [routerLink]="[ '/profile' ]">
-
-                    <strong>profile.name</strong>
-                    <div class="lh-1"><small>profile.level</small></div>
+               
+                    <strong>{{user.username}}</strong>
+                    <div class="lh-1"><small>{{user.house}}</small></div>
                 </div>
             </div>
         </div>
@@ -58,44 +58,42 @@
         <div class="row no-gutters">
             <div class="col-4">
                 <div class="alert alert-warning border shadow-sm mx-1 text-center">
-                    <h4 class="lh-0">1</h4>
+                    <h4 class="lh-0">{{support.closed}}</h4>
                     <small class="lh-0">Draft</small>
                 </div>
             </div>
             <div class="col-4">
                 <div class="alert alert-success  border shadow-sm mx-1 text-center">
-                    <h4 class="lh-0">13</h4>
-                    <small class="lh-0">Open</small>
+                    <h4 class="lh-0">{{support.draft}}</h4>
+                    <small class="lh-0">Process</small>
                 </div>
             </div>
             <div class="col-4">
                 <div class="alert alert-primary  border shadow-sm mx-1 text-center">
-                    <h4 class="lh-0">4</h4>
-                    <small class="lh-0">Process</small>
+                    <h4 class="lh-0">{{support.progress}}</h4>
+                    <small class="lh-0">Closed</small>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-12 mb-2">
+            <div class="col-6 mb-2">
                 <b>Latest Article</b>
+            </div>
+            <div class="col-6 mb-2 text-right">
+                 <a [routerLink]="[ '/cms' ]">See More</a>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="border shadow-sm rounded p-2 mb-2">
-                    <b>CMS</b>
-                    <p>100 character description</p>
+                <div class="border shadow-sm rounded p-2 mb-2" [routerLink]="[ '/cms/detail',x.id ]" *ngFor="let x of cms">
+                    <div>{{x.name}} </div> 
+                    <p>{{x.input_date | date}}</p>
                 </div>
-                <div class="border shadow-sm rounded p-2 mb-2">
-                    <b>CMS</b>
-                    <p>100 character description</p>
-                </div>
-                <div class="border shadow-sm rounded p-2 mb-2">
-                    <b>CMS</b>
-                    <p>100 character description</p>
-                </div>
+               
             </div>
-
+            <div class="col-12 text-center mb-2">
+                <a [routerLink]="[ '/cms' ]">See More</a>
+            </div>
         </div>
 
     </div>

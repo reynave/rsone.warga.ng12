@@ -56,7 +56,7 @@ export class ConfigService {
   }
 
   getObj(){
-    return false;
+    return JSON.parse(localStorage.getItem(this.objName));
   }
   relogin(data){
     if(data['error'] === 400){
