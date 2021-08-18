@@ -29,7 +29,7 @@ export class ReloginComponent implements OnInit {
       data => {
         console.log(data);
         this.configService.removeToken();
-        window.location.href = '/'; 
+        window.location.href = '/#/login'; 
       },
       error => {
         console.log(error);

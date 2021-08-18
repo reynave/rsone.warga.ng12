@@ -29,6 +29,7 @@ import { IzinFormComponent } from './support/izin-form/izin-form.component';
 import { RenovasiFormComponent } from './support/renovasi-form/renovasi-form.component';
 import { SupportDetailComponent } from './support/support-detail/support-detail.component';
 import { HomeComponent } from './home/home.component';
+import { ResetPasswordComponent } from './login/reset-password/reset-password.component';
 
 export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   align: "right",
@@ -60,7 +61,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     IzinFormComponent,
     RenovasiFormComponent,
     SupportDetailComponent,
-    HomeComponent
+    HomeComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
