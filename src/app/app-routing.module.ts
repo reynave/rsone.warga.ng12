@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'support/form/renovasi', component: RenovasiFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
 
   { path: 'panic', component: PanicComponent, canActivate: [AuthGuard], data:{active:"Panic"} },
-  { path: 'cms', component: CmsComponent, canActivate: [AuthGuard], data:{active:"CMS"} },
+  { path: 'cms', component: CmsComponent, canActivate: [AuthGuard], data:{active:"Article"} },
   { path: 'cms/detail/:id', component: CmsDetailComponent, canActivate: [AuthGuard], data:{active:"CMS"} },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data:{active:"Profile"} },
   { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard], data:{active:"Profile"} }, 

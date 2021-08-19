@@ -11,12 +11,12 @@
 
         <form (ngSubmit)="onUpdateSubmit()" #myFormUpdate="ngForm">
           <div class="form-group">
-            <label for="name">Residence</label>
-            <p>{{items.house}}</p>
+            <label for="name">Residence</label> 
+            <div class="form-control form-control-sm alert-secondary">{{items.house}}</div>
           </div>
           <div class="form-group">
             <label for="name">Name</label>
-            <p>{{items.user_name}}</p>
+            <div class="form-control form-control-sm alert-secondary">{{items.user_name}}</div>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
@@ -31,7 +31,7 @@
           </div>
           <div class="form-group">
             <label for="access_right">Login As </label>
-            <input type="text" name="" readonly class="form-control-plaintext form-control-sm" id="access_name" value="{{items.access_name}}">
+            <div class="form-control form-control-sm alert-secondary">{{items.access_name}}</div> 
           </div>
           <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
             Password has been successfully updated!

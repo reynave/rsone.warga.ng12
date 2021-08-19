@@ -36,9 +36,12 @@ export class HomeComponent implements OnInit {
       },
     ); 
   }
-
+  alert : boolean = false;
+  loading : boolean = false;
+  panic : any = [];
   onPanic(){
     if(confirm("Panic button ?")){
+      this.loading = true;
       const body = {
          token: this.configService.token(),
       }
@@ -46,6 +49,9 @@ export class HomeComponent implements OnInit {
          headers: this.configService.headers()
       }).subscribe(
         data => { 
+          this.loading = false;
+          this.alert = true;
+          this.panic = data;
         console.info(data);
       },
       error => {
