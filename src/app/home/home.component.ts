@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.httpGet();
-    this.user =  this.configService.getObj();
+    this.user =  this.configService.getObj() || {name: 'User', house:'-'};
   }
   httpGet(){
     this.http.get<any>(environment.api + "home/dashboard", {
@@ -38,8 +38,20 @@ export class HomeComponent implements OnInit {
   }
 
   onPanic(){
-    if(confirm("Panic Buttom ?")){
-      console.log("Panic Botton");
+    if(confirm("Panic button ?")){
+      const body = {
+         token: this.configService.token(),
+      }
+      this.http.post<any>(environment.api + "panicbutton/index", body, {
+         headers: this.configService.headers()
+      }).subscribe(
+        data => { 
+        console.info(data);
+      },
+      error => {
+        console.log(error);
+      },
+     ); 
     }
   }
 

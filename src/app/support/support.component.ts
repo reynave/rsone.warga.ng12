@@ -49,7 +49,6 @@ export class SupportComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHttp();
-    this.id_user_access = this.fwd_obj.id_user_access;
   }
 
   new_support() {
@@ -57,7 +56,7 @@ export class SupportComponent implements OnInit {
   }
 
   getHttp() {
-    this.http.get<any>(environment.api + "support/index/" + ((this.fwd_obj != "" || this.fwd_obj != undefined) ? this.fwd_obj.name : ''), {
+    this.http.get<any>(environment.api + "support/index/", {
       headers: this.configService.headers()
     }).subscribe(
       data => {
@@ -69,7 +68,7 @@ export class SupportComponent implements OnInit {
       },
     );
 
-    this.http.get<any>(environment.api + "support/getAccess/" + ((this.fwd_obj != "" || this.fwd_obj != undefined) ? this.fwd_obj.name : ''), {
+    this.http.get<any>(environment.api + "support/getAccess/", {
       headers: this.configService.headers()
     }).subscribe(
       res => {
@@ -86,7 +85,7 @@ export class SupportComponent implements OnInit {
   onCreateTicket(param: number) {
 
     const body = {
-      data: { supportFormId: param, userId: this.fwd_obj.name, subject: "", note: "" }, // userId
+      data: { supportFormId: param, subject: "", note: "" }, // userId
     }
 
     console.log(body);
@@ -96,7 +95,8 @@ export class SupportComponent implements OnInit {
     }).subscribe(
       data => {
         this.modalService.dismissAll();
-        if (param == 1) {
+        this.router.navigate(['/support/'+data.items]);
+        /*if (param == 1) {
           this.new_support();
         }
         else if (param == 2) { // Izin
@@ -104,7 +104,7 @@ export class SupportComponent implements OnInit {
         }
         else if (param == 4) { // Renovasi
           this.router.navigate(['/support/form/renovasi']);
-        }
+        }*/
       },
       error => {
         console.log(error);
@@ -115,7 +115,7 @@ export class SupportComponent implements OnInit {
 
   rt_read(obj: any) {
     const body = {
-      data: { ticketNumber: obj.ticketNumber, userId: obj.userId, read_by: this.fwd_obj.username }, // userId
+      data: { ticketNumber: obj.ticketNumber }, // userId
     }
 
     console.log(obj);
@@ -138,7 +138,7 @@ export class SupportComponent implements OnInit {
 
   rt_approved(obj: any) {
     const body = {
-      data: { ticketNumber: obj.ticketNumber, userId: obj.userId }, // userId
+      data: { ticketNumber: obj.ticketNumber }, // userId
     }
 
     console.log(obj);

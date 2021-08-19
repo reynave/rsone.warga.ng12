@@ -34,7 +34,7 @@ export class BillingComponent implements OnInit {
 
 
   getHttp() {
-    this.http.get<any>(environment.api + "billing/index?ref="+( (this.getId != "" || this.getId != undefined) ? this.getId.house : ''), {
+    this.http.get<any>(environment.api + "billing/index", {
       headers: this.configService.headers()
     }).subscribe(
       data => {

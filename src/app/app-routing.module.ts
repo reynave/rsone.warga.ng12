@@ -24,19 +24,19 @@ const routes: Routes = [
  
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"home"} },
  
-  { path: 'support', component: SupportComponent, canActivate: [AuthGuard], data:{active:"support"} },
+  { path: 'support', component: SupportComponent, canActivate: [AuthGuard], data:{active:"Support"} },
   { path: 'support/:ticket', component: SupportDetailComponent, canActivate: [AuthGuard], data:{active:"support"} },
  
   { path: 'support/form', component: SupportFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
   { path: 'support/form/izin', component: IzinFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
   { path: 'support/form/renovasi', component: RenovasiFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
 
-  { path: 'panic', component: PanicComponent, canActivate: [AuthGuard], data:{active:"panic"} },
-  { path: 'cms', component: CmsComponent, canActivate: [AuthGuard], data:{active:"cms"} },
-  { path: 'cms/detail/:id', component: CmsDetailComponent, canActivate: [AuthGuard], data:{active:"cms"} },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data:{active:"profile"} },
-  { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard], data:{active:"profile"} }, 
-  { path: 'billing', component: BillingComponent, canActivate: [AuthGuard], data:{active:"billing"} },
+  { path: 'panic', component: PanicComponent, canActivate: [AuthGuard], data:{active:"Panic"} },
+  { path: 'cms', component: CmsComponent, canActivate: [AuthGuard], data:{active:"CMS"} },
+  { path: 'cms/detail/:id', component: CmsDetailComponent, canActivate: [AuthGuard], data:{active:"CMS"} },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data:{active:"Profile"} },
+  { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard], data:{active:"Profile"} }, 
+  { path: 'billing', component: BillingComponent, canActivate: [AuthGuard], data:{active:"Billing"} },
   
   { path: '**', component: NotFoundComponent },
 

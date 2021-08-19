@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ConfigService } from 'src/app/service/config.service';
+import { Md5 } from "md5-typescript";
 
 declare var $ : any;
 
@@ -24,8 +25,8 @@ export class Model {
 export class ProfileComponent implements OnInit {
 
   items : any = [];
-  obj : any = JSON.parse(localStorage.getItem("forwardClient_obj")) || '{}';
   model: any = new Model(0,"","","","");
+  success : boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -38,7 +39,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getHttp() {
-    this.http.get<any>(environment.api + "profile/index/"+this.obj.name, {
+    this.http.get<any>(environment.api + "profile/index/", {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
@@ -53,7 +54,7 @@ export class ProfileComponent implements OnInit {
   }
 
   onUpdateSubmit(){
-    this.model.id = parseInt(this.obj.name);
+    this.model.password = Md5.init(this.model.password);
     const body = {
       data : this.model,
     }
@@ -64,8 +65,10 @@ export class ProfileComponent implements OnInit {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
-       console.log(data); 
-       window.location.reload();
+       console.info(data); 
+       //window.location.reload();
+       this.success = true;
+       this.model.password = '';
       },
       error => {
         console.log(error);
