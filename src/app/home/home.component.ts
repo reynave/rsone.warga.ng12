@@ -12,22 +12,26 @@ export class HomeComponent implements OnInit {
   user: any = [];
   support: any = [];
   cms: any = [];
-  
+  url : string;
   constructor( 
     private http: HttpClient,
     private configService: ConfigService, 
   ) { }
 
   ngOnInit(): void {
+  
     this.httpGet();
     this.user =  this.configService.getObj() || {name: 'User', house:'-'};
   }
   httpGet(){
+    this.loading = true;
     this.http.get<any>(environment.api + "home/dashboard", {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
+        this.loading = false;
         this.support = data['support'];
+        this.url = data['url'];
         this.cms = data['cms'];
         console.log(data);
       },
@@ -42,16 +46,13 @@ export class HomeComponent implements OnInit {
   onPanic(){
     if(confirm("Panic button ?")){
       this.loading = true;
-      const body = {
-         token: this.configService.token(),
-      }
-      this.http.post<any>(environment.api + "panicbutton/index", body, {
-         headers: this.configService.headers()
-      }).subscribe(
+      this.panic = "Calling...";
+      this.http.get<any>(this.url).subscribe(
         data => { 
+          console.log(data);
           this.loading = false;
           this.alert = true;
-          this.panic = data;
+          this.panic = "Sudah diproses";
         console.info(data);
       },
       error => {

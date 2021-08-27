@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Forward Residence One ver 1.2</title> 
+  <title>Forward Residence One ver 1.2</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- core:css -->
@@ -15,18 +15,49 @@
   <link rel="stylesheet" href="./assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="./assets/fonts/feather-font/css/iconfont.css">
   <link rel="stylesheet" href="./assets/vendors/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="./assets/css/demo_1/style.css"> 
-  <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"> 
-  
+  <link rel="stylesheet" href="./assets/css/demo_1/style.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
 </head>
 
 <body class="sidebar-dark">
   <app-root></app-root>
 
   <script src="./assets/vendors/core/core.js" type="application/javascript"></script>
-  
+
   <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" type="application/javascript"></script>
   <script src="./assets/vendors/feather-icons/feather.min.js" type="application/javascript"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      window.addEventListener = function () {
+        EventTarget.prototype.addEventListener.apply(this, arguments);
+      };
+
+      window.removeEventListener = function () {
+        EventTarget.prototype.removeEventListener.apply(this, arguments);
+      };
+
+      document.addEventListener = function () {
+        EventTarget.prototype.addEventListener.apply(this, arguments);
+      };
+
+      document.removeEventListener = function () {
+        EventTarget.prototype.removeEventListener.apply(this, arguments);
+      };
+    })();
+  </script>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript">
+    document.addEventListener('deviceready', onDeviceReady, false); 
+    function onDeviceReady() {
+      // Cordova is now initialized. Have fun! 
+      console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
+      document.getElementById('deviceready').classList.add('ready');
+    }
+
+  </script>
 </body>
 
 </html>

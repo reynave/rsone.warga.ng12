@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   api : "https://forwards.or.id/warga.api/",  
-  apiAdmin : "'https://forwards.or.id/admin.api/formresidenceone/", 
+  apiAdmin : "https://forwards.or.id/admin.api/formresidenceone/", 
   
 };
 
