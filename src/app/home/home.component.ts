@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { ConfigService } from '../service/config.service';
 
@@ -15,6 +16,7 @@ export class HomeComponent implements OnInit {
   url : string;
   constructor( 
     private http: HttpClient,
+    private router: Router,
     private configService: ConfigService, 
   ) { }
 
@@ -40,6 +42,12 @@ export class HomeComponent implements OnInit {
       },
     ); 
   }
+
+  seeDetail(type: number){
+    this.router.navigate(['/support/'],{ queryParams : { setSupportStatus : type }});
+    // https://www.digitalocean.com/community/tutorials/angular-query-parameters-id
+  }
+
   alert : boolean = false;
   loading : boolean = false;
   panic : any = [];

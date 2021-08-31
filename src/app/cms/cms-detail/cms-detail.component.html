@@ -10,7 +10,7 @@
               <div class="col-12 my-3">
                 <h5>{{items.name}}</h5>
 
-                <p class="text-small">By : {{items.user_name}}, {{items.input_date | date:'H/MM/yyyy hh:mm:ss'}}</p>
+                <p class="text-small">By : {{items.user_name}}, {{items.input_date | date:'HH/MM/yyyy HH:mm:ss'}}</p>
     
                 <article [innerHtml]="items.content"></article>
               </div>

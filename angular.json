@@ -33,7 +33,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "../cordova/www",
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ],
+            "outputPath": "dist/user",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",

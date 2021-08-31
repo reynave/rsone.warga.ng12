@@ -203,7 +203,6 @@
 
                         <div class="mb-1 bb-silver">
                             <label for="select" class="form-label  text-bold text-bold">Permohonan</label>  
-                            <!--<input type="text" class="form-control-plaintext form-control-sm" value="{{ obj.f1}}" [readonly]="is_readonly">-->
                             <select *ngIf="!is_readonly" required [(ngModel)]="modelform.f1" name="f1" #f1="ngModel" (change)="onAutoSaveForm('f1',modelform.f1)">
                                <option value="Izin Masuk">Izin Masuk</option>
                                <option value="Izin Keluar">Izin Keluar</option>
@@ -214,25 +213,28 @@
 
               <div class="mb-3">
                   <label class="form-label">Nama</label>
-                  <input type="text" class="form-control{{plaintext}} form-control-sm" id="f2" readonly [(ngModel)]="modelform.f2" name="f2" #f2="ngModel" [readonly]="is_readonly">
+                  <!--<input type="text" class="form-control{{plaintext}} form-control-sm" id="f2" readonly [(ngModel)]="modelform.f2" name="f2" #f2="ngModel" [readonly]="true">-->
+                  <div class="text-readonly">{{obj.f2}}</div>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">No. KTP</label>
-                  <input type="text" class="form-control{{plaintext}} form-control-sm" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f3="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)" [readonly]="is_readonly">
+                  <div class="text-readonly">{{obj.f3}}</div>
+                  <!--<input type="text" class="form-control{{plaintext}} form-control-sm" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f3="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)" [readonly]="true">
                   <p id="f3_saved" style="display:none">Saved...</p>
                   <div [hidden]="f3.valid || f3.pristine" class="mt-2 text-danger">
                         no ktp is required
-                  </div>
+                  </div>-->
               </div>
 
               <div class="mb-3">
                   <label class="form-label">No. TLP</label>
-                  <input type="text" class="form-control{{plaintext}} form-control-sm" id="f4" required [(ngModel)]="modelform.f4" name="f4" #f4="ngModel" (change)="onAutoSaveForm('f4',modelform.f4)" [readonly]="is_readonly">
+                  <div class="text-readonly">{{obj.f4}}</div>
+                  <!--<input type="text" class="form-control{{plaintext}} form-control-sm" id="f4" required [(ngModel)]="modelform.f4" name="f4" #f4="ngModel" (change)="onAutoSaveForm('f4',modelform.f4)" [readonly]="true">
                   <p id="f4_saved" style="display:none">Saved...</p>
                   <div [hidden]="f4.valid || f4.pristine" class="mt-2 text-danger">
                         no tlp is required
-                  </div>
+                  </div>-->
               </div>
 
               <div class="mb-3">
@@ -246,11 +248,12 @@
 
               <div class="mb-3">
                   <label class="form-label">Unit</label>
-                  <input type="text" class="form-control{{plaintext}} form-control-sm" id="f6" required [(ngModel)]="modelform.f6" name="f6" #f6="ngModel" (change)="onAutoSaveForm('f6',modelform.f6)" [readonly]="is_readonly">
+                  <div class="text-readonly">{{obj.f6}}</div>
+                  <!--<input type="text" class="form-control{{plaintext}} form-control-sm" id="f6" required [(ngModel)]="modelform.f6" name="f6" #f6="ngModel" (change)="onAutoSaveForm('f6',modelform.f6)" [readonly]="true">
                   <p id="f6_saved" style="display:none">Saved...</p>
                   <div [hidden]="f6.valid || f6.pristine" class="mt-2 text-danger">
                         unit is required
-                  </div>
+                  </div>-->
               </div>
 
               <div class="mb-3">
@@ -304,8 +307,8 @@
 
               <div class="mb-3">
                   <label class="form-label">No. TLP</label>
-                  <input type="text" class="form-control{{plaintext}}" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f3="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)" [readonly]="is_readonly">
-                  <p id="f3_saved" style="display:none">Saved...</p>
+                  <!--<input type="text" class="form-control{{plaintext}}" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f3="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)" [readonly]="is_readonly">-->
+                  <div class="text-readonly">{{obj.f3}}</div>
               </div>
 
               <div class="mb-3">
@@ -359,10 +362,12 @@
 
                     </div>
 
-                    <div *ngIf="is_readonly" class="mb-1">
-                        <label for="input_date" class="form-label text-bold">Created Date</label>
-                        <input type="text" readonly class="form-control-plaintext" value="{{obj.input_date | date:'dd/MM/yyyy H:mm:ss'}}" />
+                    <div class="mb-1">
+                        <label for="input_date" class="form-label text-bold">Request Date</label>
+                        <input *ngIf="obj.status_name == 'Open' || obj.status_name == 'Closed' || obj.status_name == 'In-progress'" type="text" readonly class="form-control-plaintext" value="{{obj.input_date | date:'dd/MM/yyyy H:mm:ss'}}" />
+                        <div *ngIf="obj.status_name == 'Draft'" class="text-readonly">{{today | date:'dd/MM/yyyy HH:mm:ss'}}</div>
                     </div>
+
                     <div class="mb-1" *ngIf="obj.approval_status == '1'">
                         <p class="text-success"><i class="fas fa-user-check"></i> Read by RT {{read_by}} {{obj.read_by}}</p>
                     </div>
@@ -373,6 +378,7 @@
                         <button *ngIf="id_user_access == 9698 && (obj.approval_status == null || obj.approval_status == 0)" class="btn btn-success  m-1" (click)="rt_approved(obj)"><i class="fas fa-check"></i> RT Approved</button>
                         
                         <a *ngIf="obj.status_name != 'Draft'" role="button" class="btn btn-info text-light  m-1" (click)="goToLink(new_tab)"><i class="fas fa-print"></i> Print</a>
+
                     </div>
                 </form>
             </div>
@@ -384,4 +390,5 @@
 
 <div *ngIf="showButton" class="p-2 button-bottom text-center border-top shadow-sm">
     <button *ngIf="!is_readonly" type="submit" class="btn btn-warning btn-block" (click)="onSubmit()" [disabled]="!myFormUpdate.form.valid">Submit</button>
+    <button *ngIf="obj.supportStatusId == 1" type="button" class="btn btn-danger btn-block" (click)="draftDelete(obj.ticketNumber)">Delete</button>
 </div>

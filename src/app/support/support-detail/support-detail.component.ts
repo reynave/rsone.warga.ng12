@@ -70,6 +70,7 @@ export class SupportDetailComponent implements OnInit {
   plaintext: string = '-plaintext';
   modelform : any = new ModelForm(0,"","","","","","","","","","","","","","","","","","","","","");
   model : any = new Model(0,"","",0,0);
+  today: number = Date.now();
   
   constructor(
     private modalService: NgbModal,
@@ -83,6 +84,9 @@ export class SupportDetailComponent implements OnInit {
   ngOnInit(): void {
     this.ticket = this.activatedRoute.snapshot.paramMap.get('ticket');
     this.getHttp(this.ticket);
+    setInterval(() => {
+      this.today = Date.now();
+    }, 1000); // https://yogeshchauhan.com/angular-9-time-clock-update-every-minute-second-hour/
   }
 
  
@@ -112,7 +116,7 @@ export class SupportDetailComponent implements OnInit {
             fro = 'renov';
         }
         else if (this.obj.supportFormId == '1') {
-            fro = 'deposit';
+            fro = 'general';
         }
         this.new_tab =  environment.apiAdmin + 'index/' + fro + '?ticket=' + (this.ticket ? this.ticket : '') + '&action=print';
         console.log(data);
@@ -135,7 +139,6 @@ export class SupportDetailComponent implements OnInit {
     );
 
   }
-
 
   onAutoSave(field:string,formModel:any){
     const body = {
@@ -245,5 +248,31 @@ export class SupportDetailComponent implements OnInit {
   back(){
     window.history.back();
   }
+
+  draftDelete(ticketNumber: string){
+
+    if(!confirm("Are you sure?")){
+       return false;
+    }
+
+    const body = {
+      data: { ticketNumber: ticketNumber }, // userId
+    }
+
+    this.http.post<any>(environment.api + "support/draftDelete", body, {
+      headers: this.configService.headers()
+    }).subscribe(
+      data => {
+        //this.modalService.dismissAll();
+        this.back();
+        console.info("Deleted");
+      },
+      error => {
+        console.log(error);
+      },
+
+    );
+  }
+
 
 }

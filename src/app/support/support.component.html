@@ -19,10 +19,10 @@
                     <div class="row">
                         <div class="col-12"><b>{{item.form_support}}</b>, {{item.subject}}</div>
 
-                        <div class="col-10">
+                        <div class="col-9">
                             <small> Request by: {{item.request_name}}</small>
                         </div>
-                        <div class="col-2 text-right"> <small> {{item.status_name}} </small></div>
+                        <div class="col-3 text-right"> <small> {{item.status_name}} </small>  <a *ngIf="item.supportStatusId == 1" role="button" (click)="draftDelete(item.ticketNumber)"><i class="fas fa-trash-alt text-danger"></i></a></div>
                     </div>
                 </div>
             </div>

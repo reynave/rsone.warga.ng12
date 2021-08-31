@@ -44,6 +44,7 @@ export class SupportComponent implements OnInit {
     private http: HttpClient,
     private configService: ConfigService,
     private router: Router,
+    private activRoute: ActivatedRoute,
     private sanitizer: DomSanitizer
   ) { }
 
@@ -56,7 +57,9 @@ export class SupportComponent implements OnInit {
   }
 
   getHttp() {
-    this.http.get<any>(environment.api + "support/index/", {
+    const filter = this.activRoute.snapshot.queryParamMap.get('setSupportStatus');
+    console.info(filter);
+    this.http.get<any>(environment.api + "support/index/"+((filter != null) ? "?setSupportStatus="+filter : ''), {
       headers: this.configService.headers()
     }).subscribe(
       data => {
@@ -174,6 +177,31 @@ export class SupportComponent implements OnInit {
     this.showList = false;
     this.showDetail = true;
     this.showButton = false;
+  }
+
+  draftDelete(ticketNumber: string){
+
+    if(!confirm("Are you sure?")){
+       return false;
+    }
+
+    const body = {
+      data: { ticketNumber: ticketNumber }, // userId
+    }
+
+    this.http.post<any>(environment.api + "support/draftDelete", body, {
+      headers: this.configService.headers()
+    }).subscribe(
+      data => {
+        //this.modalService.dismissAll();
+        window.location.reload(true);
+        console.info("Deleted");
+      },
+      error => {
+        console.log(error);
+      },
+
+    );
   }
 
   show_list() {

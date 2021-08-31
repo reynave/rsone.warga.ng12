@@ -22,14 +22,14 @@ const routes: Routes = [
   { path: 'relogin', component: ReloginComponent },
   { path: 'login', component: LoginComponent }, 
  
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"home"} },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"Home"} },
  
   { path: 'support', component: SupportComponent, canActivate: [AuthGuard], data:{active:"Support"} },
-  { path: 'support/:ticket', component: SupportDetailComponent, canActivate: [AuthGuard], data:{active:"support"} },
+  { path: 'support/:ticket', component: SupportDetailComponent, canActivate: [AuthGuard], data:{active:"Support"} },
  
-  { path: 'support/form', component: SupportFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
-  { path: 'support/form/izin', component: IzinFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
-  { path: 'support/form/renovasi', component: RenovasiFormComponent, canActivate: [AuthGuard], data:{active:"support"} },
+  { path: 'support/form', component: SupportFormComponent, canActivate: [AuthGuard], data:{active:"Support"} },
+  { path: 'support/form/izin', component: IzinFormComponent, canActivate: [AuthGuard], data:{active:"Support"} },
+  { path: 'support/form/renovasi', component: RenovasiFormComponent, canActivate: [AuthGuard], data:{active:"Support"} },
 
   { path: 'panic', component: PanicComponent, canActivate: [AuthGuard], data:{active:"Panic"} },
   { path: 'cms', component: CmsComponent, canActivate: [AuthGuard], data:{active:"Article"} },

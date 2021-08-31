@@ -66,21 +66,21 @@
         </div>
 
         <div class="row no-gutters">
-            <div class="col-4">
+            <div class="col-4" (click)="seeDetail(1)">
                 <div class="alert alert-warning border shadow-sm mx-1 text-center">
-                    <h4 class="lh-0">{{support.closed}}</h4>
+                    <h4 class="lh-0">{{support.draft}}</h4>
                     <small class="lh-0">Draft</small>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4" (click)="seeDetail(11)">
                 <div class="alert alert-success  border shadow-sm mx-1 text-center">
-                    <h4 class="lh-0">{{support.draft}}</h4>
+                    <h4 class="lh-0">{{support.progress}}</h4>
                     <small class="lh-0">Process</small>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4" (click)="seeDetail(100)">
                 <div class="alert alert-primary  border shadow-sm mx-1 text-center">
-                    <h4 class="lh-0">{{support.progress}}</h4>
+                    <h4 class="lh-0">{{support.closed}}</h4>
                     <small class="lh-0">Closed</small>
                 </div>
             </div>
