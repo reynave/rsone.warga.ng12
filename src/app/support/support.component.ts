@@ -194,8 +194,13 @@ export class SupportComponent implements OnInit {
     }).subscribe(
       data => {
         //this.modalService.dismissAll();
-        window.location.reload(true);
-        console.info("Deleted");
+        if(data.denied){
+           alert('This draft data cannot be deleted because you\'re not support requester!');
+           console.error('This draft data cannot be deleted because you\'re not support requester!');
+        } else {
+           window.location.reload(true);
+           console.info("Deleted");
+        }
       },
       error => {
         console.log(error);

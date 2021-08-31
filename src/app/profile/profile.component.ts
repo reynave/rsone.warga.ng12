@@ -12,6 +12,8 @@ export class Model {
     public id: number,
     public name: string,
     public email: string,
+    public ktp: string,
+    public phone_1: string,
     public password: string,
     public access_right: string,
   ) { } 
@@ -25,7 +27,7 @@ export class Model {
 export class ProfileComponent implements OnInit {
 
   items : any = [];
-  model: any = new Model(0,"","","","");
+  model: any = new Model(0,"","","","","","");
   success : boolean = false;
 
   constructor(
@@ -54,7 +56,8 @@ export class ProfileComponent implements OnInit {
   }
 
   onUpdateSubmit(){
-    this.model.password = Md5.init(this.model.password);
+    this.success = false;
+    this.model.password = (this.model.password != '') ? Md5.init(this.model.password) : '';
     const body = {
       data : this.model,
     }

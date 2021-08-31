@@ -21,8 +21,19 @@
           <div class="form-group">
             <label for="email">Email</label>
             <input id="email" name="email" type="text" required readonly [(ngModel)]="model.email" #email="ngModel" class="form-control form-control-sm" value="{{items.email}}">
-            <div [hidden]="email.valid || email.pristine" class="mt-2 text-danger">
-              email is required
+          </div>
+          <div class="form-group">
+            <label for="email">KTP</label>
+            <input id="email" name="ktp" type="text" [(ngModel)]="model.ktp" #ktp="ngModel" class="form-control form-control-sm" value="{{items.ktp}}">
+            <div [hidden]="ktp.valid || ktp.pristine" class="mt-2 text-danger">
+              ktp is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Phone</label>
+            <input id="email" name="phone_1" type="text" [(ngModel)]="model.phone_1" #phone_1="ngModel" class="form-control form-control-sm" value="{{items.phone_1}}" maxlength="20">
+            <div [hidden]="phone_1.valid || phone_1.pristine" class="mt-2 text-danger">
+              phone is required
             </div>
           </div>
           <div class="form-group">
@@ -34,7 +45,7 @@
             <div class="form-control form-control-sm alert-secondary">{{items.access_name}}</div> 
           </div>
           <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
-            Password has been successfully updated!
+            Profile has been successfully updated!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
