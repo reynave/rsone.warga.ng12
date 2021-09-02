@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { ConfigService } from '../service/config.service';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,15 +14,16 @@ export class HomeComponent implements OnInit {
   user: any = [];
   support: any = [];
   cms: any = [];
-  url : string;
+  url : string; 
   constructor( 
     private http: HttpClient,
     private router: Router,
     private configService: ConfigService, 
+    private modalService: NgbModal,
   ) { }
 
   ngOnInit(): void {
-  
+    this.modalService.dismissAll();
     this.httpGet();
     this.user =  this.configService.getObj() || {name: 'User', house:'-'};
   }
