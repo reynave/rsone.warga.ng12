@@ -181,7 +181,7 @@ export class SupportComponent implements OnInit {
 
   draftDelete(ticketNumber: string){
 
-    if(!confirm("Are you sure?")){
+    if(!confirm("Are you sure you want to delete draft ticket "+ticketNumber+" ?")){
        return false;
     }
 

@@ -377,7 +377,7 @@
                         
                         <button *ngIf="id_user_access == 9698 && (obj.approval_status == null || obj.approval_status == 0)" class="btn btn-success  m-1" (click)="rt_approved(obj)"><i class="fas fa-check"></i> RT Approved</button>
                         
-                        <a *ngIf="obj.status_name != 'Draft'" role="button" class="btn btn-info text-light  m-1" (click)="goToLink(new_tab)"><i class="fas fa-print"></i> Print</a>
+                        <a *ngIf="is_print == '1'" role="button" class="btn btn-info text-light  m-1" (click)="goToLink(new_tab)"><i class="fas fa-print"></i> Print</a>
 
                     </div>
                 </form>

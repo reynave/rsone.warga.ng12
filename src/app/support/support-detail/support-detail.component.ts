@@ -56,6 +56,7 @@ export class SupportDetailComponent implements OnInit {
   navgatorTop : boolean = true;
   items: any = [];
   obj: any = [];
+  is_print: any;
   showList: boolean = true;
   showDetail: boolean = false;
   showButton: boolean = false;
@@ -98,6 +99,7 @@ export class SupportDetailComponent implements OnInit {
       data => {
         this.items = data['items'];
         this.obj = data['items'][0];
+        this.is_print = data['print'];
         this.model = this.obj;
         this.modelform = this.obj;
         if(this.obj.supportStatusId == 1){
