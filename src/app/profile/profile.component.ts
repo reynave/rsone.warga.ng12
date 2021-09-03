@@ -90,7 +90,7 @@ export class ProfileComponent implements OnInit {
     }).subscribe(
       data => {  
           this.configService.removeToken();
-          this.router.navigate(['relogin']);
+          this.router.navigate(['login']);
       },
       error => {
         console.log(error); 
