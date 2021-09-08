@@ -190,7 +190,7 @@
                     <div class="d-grid text-center">
                         <!-- d-grid gap-2 col-6 mx-auto -->
                         <button type="button" class="btn btn-primary" (click)="show_list()">Back</button>&nbsp;
-                        <button *ngIf="id_user_access == 9697 && (obj.approval_status == null || obj.approval_status == 0) && !is_read" class="btn btn-success" (click)="rt_read(obj)"><i class="fas fa-check"></i> RT Read</button>&nbsp;
+                        <button *ngIf="id_user_access == 9697" class="btn btn-success" (click)="rt_read(obj)"><i class="fas fa-check"></i> RT Read</button>&nbsp;
                         <button *ngIf="id_user_access == 9698 && (obj.approval_status == null || obj.approval_status == 0)" class="btn btn-success" (click)="rt_approved(obj)"><i class="fas fa-check"></i> RT Approved</button>&nbsp;
                         <a *ngIf="obj.status_name != 'Draft'" role="button" class="btn btn-info text-light" (click)="goToLink(new_tab)"><i class="fas fa-print"></i> Print</a>
                     </div>
@@ -203,7 +203,7 @@
 </div>
 
 <div *ngIf="showButton" class="p-2 button-bottom text-center border-top shadow-sm">
-    <button *ngIf="action.support" class="btn btn-success btn-block" (click)="open(modalNewRequest)">New Support Request</button>
+    <button class="btn btn-success btn-block" (click)="open(modalNewRequest)">New Support Request</button>
 </div>
 
 
