@@ -5,8 +5,7 @@
                 <strong class="m-0  text-white">Residence One</strong>
             </div>
             <div class="col-8 text-right">
-                <div [routerLink]="[ '/profile' ]">
-               
+                <div [routerLink]="[ '/profile' ]"> 
                     <strong>{{user.name}}</strong>
                     <div class="lh-1"><small>{{user.house}}</small></div>
                 </div>
@@ -14,30 +13,53 @@
         </div>
     </div>
 
-    <div class="warp-header border-2  py-2 bg-white shadow-sm rounded-3x mt-5">
+    <div class="warp-header border-2  py-4 bg-home shadow-sm rounded-3x mt-5">
         <div class="container">
             <div class="row">
 
-                <div class="col-4 text-center">
+                <div class="col-4 text-center mb-3">
                     <a href="javascript:;" [routerLink]="[ '/support' ]">
                         <img src="./assets/images/icons8-ticket-58.png" width="40%">
-                        <div class="lh-1"> <small> <b>Support</b> </small></div>
+                        <div class="lh-1"> <small> <b>Pelayanan Warga</b> </small></div>
                     </a>
                 </div>
 
-                <div class="col-4 text-center">
+                <div class="col-4 text-center mb-3">
                     <a href="javascript:;" [routerLink]="[ '/billing' ]">
                         <img src="./assets/images/icons8-bill-58.png" width="40%">
-                        <div class="lh-1"> <small> <b>Billing</b> </small> </div>
+                        <div class="lh-1"> <small> <b>IPL</b> </small> </div>
                     </a>
                 </div>
 
-                <div class="col-4 text-center">
+                <div class="col-4 text-center mb-3">
                     <a href="javascript:;" (click)="onPanic();">
                         <img src="./assets/images/icons8-brake-warning-48.png" width="40%">
-                        <div class="lh-1"> <small><b> Panic</b></small></div>
+                        <div class="lh-1"> <small><b>DARURAT</b></small></div>
                     </a>
                 </div>
+  
+                <div class="col-4 text-center">
+                    <a href="javascript:;" [routerLink]="[ '/cms/category/1' ]">
+                        <img src="./assets/images/icons8-announcement-64.png" width="40%">
+                        <div class="lh-1"> <small> <b>PENGUMUMAN</b> </small></div>
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="javascript:;" [routerLink]="[ '/cms/category/2' ]">
+                        <img src="./assets/images/icons8-billboard-64.png" width="40%">
+                        <div class="lh-1"> <small> <b>Pasan One</b> </small></div>
+                    </a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="javascript:;" [routerLink]="[ '/cms/category/3' ]">
+                        <img src="./assets/images/icons8-news-64.png" width="40%">
+                        <div class="lh-1"> <small> <b>Lain-lain</b> </small></div>
+                    </a>
+                </div>
+
+
+
+
             </div>
 
         </div>
@@ -48,18 +70,73 @@
 <div class="main-wrapper mt-2">
     <div class="container">
 
-
-        <div class="row">
-            <div class="col-12" [hidden]="!alert">
+        <div class="row" [hidden]="!alert">
+            <div class="col-12">
                 <div class="alert alert-danger text-center">
                     {{panic}}
                     <div [hidden]="!loading">Sending...</div>
                 </div>
             </div>
+        </div>
 
 
+
+        <!-- <div class="row">
             <div class="col-12 mb-2">
-                <b>Support Ticket</b>
+                <b>Informasi e-Forwards</b>
+            </div>
+        </div> -->
+
+        <!-- <div class="row no-gutters">
+            <div class="col-4 text-center mb-3">
+                <div class="border shadow-sm rounded-sm alert-light p-1 m-1" [routerLink]="[ '/cms/category/1' ]">
+                    <img src="./assets/images/icons8-announcement-64.png" width="50%"> 
+                    <div class="lh-1"> <small><b>PENGUMUMAN</b></small></div>
+                </div>
+
+            </div>
+            <div class="col-4 text-center mb-3">
+                <div class="border shadow-sm rounded-sm alert-light p-1 m-1" [routerLink]="[ '/cms/category/2' ]">
+                    <img src="./assets/images/icons8-billboard-64.png" width="50%"> 
+                    <div class="lh-1"> <small><b>PASAR ONE</b></small></div>
+                </div>
+
+            </div>
+            <div class="col-4 text-center mb-3">
+                <div class="border shadow-sm rounded-sm alert-light p-1 m-1" [routerLink]="[ '/cms/category/3' ]">
+                    <img src="./assets/images/icons8-news-64.png" width="50%"> 
+                    <div class="lh-1"> <small><b>LAIN-LAIN</b></small></div>
+                </div> 
+            </div>
+            
+        </div> -->
+
+        <!-- <div class="row">
+            <div class="col-12">
+                <div class="border shadow-sm rounded p-2 mb-2" [routerLink]="[ '/cms/detail',x.id ]" *ngFor="let x of cms">
+                    <div>{{x.name}} </div>
+                    <p>{{x.input_date | date}}</p>
+                </div>
+
+            </div>
+            <div class="col-12 text-center mb-2">
+                <a [routerLink]="[ '/cms' ]">See More</a>
+            </div>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-12 mb-2">
+                <b>Permintaan Layanan Warga</b>
             </div>
 
         </div>
@@ -84,26 +161,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6 mb-2">
-                <b>Latest Article</b>
-            </div>
-            <div class="col-6 mb-2 text-right">
-                 <a [routerLink]="[ '/cms' ]">See More</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="border shadow-sm rounded p-2 mb-2" [routerLink]="[ '/cms/detail',x.id ]" *ngFor="let x of cms">
-                    <div>{{x.name}} </div> 
-                    <p>{{x.input_date | date}}</p>
-                </div>
-               
-            </div>
-            <div class="col-12 text-center mb-2">
-                <a [routerLink]="[ '/cms' ]">See More</a>
-            </div>
-        </div>
+
 
     </div>
 
