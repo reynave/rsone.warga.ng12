@@ -7,9 +7,9 @@
            <div class="my-2"  [hidden]="loading">
             <strong>Tagihan yang belum dibayarkan.</strong> 
            </div>
-            <span *ngFor="let x of items_list; let i = index;"> 
-                <div class=" border p-2 bg-{{i%2==0 ?'white':'light'}} shadow-sm" *ngIf="i < 68 && x != 0">
-                    <div class="row">
+            <span *ngFor="let x of items_list; let i = index;" [hidden]="x == 0"> 
+                <div class=" border p-2 bg-{{i%2==0 ?'white':'light'}} shadow-sm"><!-- *ngIf="i < 68 && x != 0" -->
+                    <div class="row" *ngIf="label_list[i] != 'UNIT' && x != 0">
                         <div class="col-4 text-right">
                             <b>{{label_list[i] | date:'MMM yyyy'}}</b>
                         </div>
