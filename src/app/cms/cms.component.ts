@@ -4,8 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ConfigService } from 'src/app/service/config.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-declare var $ : any;
+ 
 
 export class Model {
   constructor(
@@ -22,11 +21,11 @@ export class Model {
   styleUrls: ['./cms.component.css']
 })
 export class CmsComponent implements OnInit {
-
+  getId : string = "";
   items: any = [];
-
+  category : string = "Loading...";
   constructor(
-
+    private activatedRoute: ActivatedRoute,
     private modalService: NgbModal,
     private http: HttpClient,
     private configService: ConfigService,
@@ -34,25 +33,29 @@ export class CmsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getHttp(); 
+    this.getId = this.activatedRoute.snapshot.params.id;
+    this.getHttp( this.getId );  
+    
   }
 
-  getHttp() {
-    this.http.get<any>(environment.api + "content/index", {
+  getHttp(getId) {
+    this.http.get<any>(environment.api + "content/index/"+getId, {
       headers: this.configService.headers()
     }).subscribe(
       data => { 
         console.log(data); 
-        this.items =  data['items']; 
-        $(document).ready(function() {
-          $('#example').DataTable();
-        });
+        this.category  = data['category'];
+        this.items =  data['items'];  
       },
       error => {
         console.log(error);
       },
 
     );
+  }
+
+  back(){
+    window.history.back();
   }
 
 

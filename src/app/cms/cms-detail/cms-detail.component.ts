@@ -46,4 +46,8 @@ export class CmsDetailComponent implements OnInit {
     }
   }
 
+  back(){
+    window.history.back();
+  }
+
 }

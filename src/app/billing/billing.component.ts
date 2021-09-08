@@ -40,7 +40,7 @@ export class BillingComponent implements OnInit {
       data => {
         this.labels = data['label'];
         this.items =  data['item'];
-        for(let a = this.labels.length-1; a >= 0; a--){
+        for(let a = this.labels.length-1; a >= 0; a--){ // untuk mengurut data dari yang tanggal terawal hingga terakhir
            this.label_list.push(this.labels[a]);
            this.items_list.push(this.items[a]);
         } 

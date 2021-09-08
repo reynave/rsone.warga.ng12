@@ -1,8 +1,15 @@
 header{
     background: url('./../../assets/images/colourful-textured.jpg')  #ffffff center bottom no-repeat; 
     background-size: cover;
-    background-position-y: -34px;
+    background-position-y: -8px;
     padding-bottom: 39px  !important;
+}
+.lh-1{
+    line-height: 13px !important;
+}
+
+.bg-home{
+    background: rgb(255 255 255 / 86%) !important;
 }
 
 .warp-header{

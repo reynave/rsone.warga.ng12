@@ -8,8 +8,7 @@ export class Login {
   constructor(
     public email: string,
     public password: string
-  ) { }
-
+  ) { } 
 }
 @Component({
   selector: 'app-login',
@@ -100,6 +99,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         console.log(error);
+        this.note = "Request ERROR, please contact administrator!";
       },
 
     );
