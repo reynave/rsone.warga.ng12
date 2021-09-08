@@ -32,7 +32,7 @@ export class BillingComponent implements OnInit {
     this.getHttp();
   }
 
-
+  // Load dari API yang mengambil dari Excel
   getHttp() {
     this.http.get<any>(environment.api + "billing/index", {
       headers: this.configService.headers()
