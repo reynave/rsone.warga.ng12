@@ -38,7 +38,7 @@ export class SupportComponent implements OnInit {
   is_approved: boolean = false;
   action: any = [];
   read_by: string;
-
+  enableRequest : boolean = false;
   constructor(
     private modalService: NgbModal,
     private http: HttpClient,
@@ -63,6 +63,7 @@ export class SupportComponent implements OnInit {
       headers: this.configService.headers()
     }).subscribe(
       data => {
+        this.enableRequest = data['enableRequest'];
         this.items = data['items'];
         console.log(data);
       },

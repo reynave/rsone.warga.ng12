@@ -202,13 +202,13 @@
     </div>
 </div>
 <!-- untuk support request -->
-<div class="p-2 button-bottom text-center border-top shadow-sm">
-    <button class="btn btn-success btn-block" (click)="open(modalNewRequest)">Permitaan Layanan Warga</button>
+<div class="p-2 button-bottom text-center border-top shadow-sm" [hidden]="!enableRequest">
+    <button class="btn btn-success btn-block" (click)="open(modalNewRequest)">Permintaan Layanan Warga</button>
 </div>
  
 <ng-template #modalNewRequest let-modal>
     <div class="modal-header">
-        <strong class="modal-title" id="modal-basic-title">Permitaan Layanan Warga</strong>
+        <strong class="modal-title" id="modal-basic-title">Permintaan Layanan Warga</strong>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>

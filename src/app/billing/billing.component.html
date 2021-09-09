@@ -5,15 +5,15 @@
     <div class="page-wrapper">
         <div class="container-fluid my-2">
            <div class="my-2"  [hidden]="loading">
-            <strong>Tagihan yang belum dibayarkan.</strong><!-- -->
+            Tagihan yang belum dibayarkan.
            </div>
-            <span *ngFor="let x of items_list; let i = index;" [hidden]="x == 0"><!-- Data dalam looping akan di-hide jika nilai 0 -->
-                <div class=" border p-2 bg-{{i%2==0 ?'white':'light'}} shadow-sm"><!-- *ngIf="i < 68 && x != 0" -->
-                    <div class="row" *ngIf="label_list[i] != 'UNIT' && x != 0"><!-- jika data bukan unit dan nilai bukan '0' -->
-                        <div class="col-4 text-right">
-                            <b>{{label_list[i] | date:'MMM yyyy'}}</b>
+            <span *ngFor="let x of items; let i = index;" [hidden]="i < 1" > 
+                <div class=" border p-2 bg-{{i%2==0 ?'white':'light'}} shadow-sm" [hidden]="x < 1"> 
+                    <div class="row" >
+                        <div class="col-6 text-right">
+                            <b>{{month[i]}} {{ labels[i] | date:'yyyy' }}</b>   
                         </div>
-                        <div class="col-8">
+                        <div class="col-6"> 
                             <b>Rp {{x | number}}</b>
                         </div>
                     </div>

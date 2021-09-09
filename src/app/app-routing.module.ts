@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'cms/detail/:id', component: CmsDetailComponent, canActivate: [AuthGuard], data:{active:"CMS"} },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data:{active:"Profile"} },
   { path: 'profile/edit', component: ProfileEditComponent, canActivate: [AuthGuard], data:{active:"Profile"} }, 
-  { path: 'billing', component: BillingComponent, canActivate: [AuthGuard], data:{active:"Billing"} },
+  { path: 'billing', component: BillingComponent, canActivate: [AuthGuard], data:{active:"IPL"} },
   
   { path: '**', component: NotFoundComponent },
 

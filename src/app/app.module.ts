@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { FeatherModule } from 'angular-feather';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AppRoutingModule } from './app-routing.module';
@@ -79,7 +79,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   exports: [
     FeatherModule
   ],
-  providers: [{ provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }],
+  providers: [{ provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
+    { provide: LOCALE_ID, useValue: "en-ID" }, //replace "de-at" with your locale
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

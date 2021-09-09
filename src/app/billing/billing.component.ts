@@ -31,20 +31,21 @@ export class BillingComponent implements OnInit {
   ngOnInit(): void {
     this.getHttp();
   }
-
+  month : any = [];
   // Load dari API yang mengambil dari Excel
   getHttp() {
     this.http.get<any>(environment.api + "billing/index", {
       headers: this.configService.headers()
     }).subscribe(
       data => {
-        this.labels = data['label'];
+        this.labels = data['label']; 
         this.items =  data['item'];
-        for(let a = this.labels.length-1; a >= 0; a--){ // untuk mengurut data dari yang tanggal terawal hingga terakhir
-           this.label_list.push(this.labels[a]);
-           this.items_list.push(this.items[a]);
-        } 
-        console.log(data); 
+        this.month = data['month'];
+        // for(let a = this.labels.length-1; a >= 0; a--){ // untuk mengurut data dari yang tanggal terawal hingga terakhir
+        //    this.label_list.push(this.labels[a]);
+        //    this.items_list.push(this.items[a]);
+        // } 
+        console.log( data); 
         this.loading=false;
       },
       error => {
