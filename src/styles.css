@@ -18,6 +18,11 @@ strong, b{
     margin-top: 50px;
 }
 
+.cms_content article img {
+    width: 100% !important;
+    height: auto !important;
+}
+
 .main-wrapper .page-wrapper {
     min-height: 92vh !important;
     background: #f9fafb;
