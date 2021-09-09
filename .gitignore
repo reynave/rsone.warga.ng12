@@ -2,7 +2,13 @@
 
 # compiled output
 /dist
+
+
+# custome by Felix
 /src/environments
+angular.json
+
+
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -10,7 +16,7 @@
 
 # dependencies
 /node_modules
-angular.json
+
 # profiling files
 chrome-profiler-events*.json
 
