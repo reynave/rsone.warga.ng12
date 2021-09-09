@@ -14,7 +14,7 @@ export class CmsDetailComponent implements OnInit {
   items: any = [];
   obj: any = [];
   getId: string = "";
-
+category : string = "Loading...";
   constructor(
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -36,7 +36,8 @@ export class CmsDetailComponent implements OnInit {
     }).subscribe(
       data => { 
         console.log(data); 
-        this.items = data;
+        this.category = data['category'];
+        this.items = data['item'];
       },
       error => {
         console.log(error);

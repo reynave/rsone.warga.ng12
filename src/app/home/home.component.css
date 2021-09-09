@@ -7,7 +7,9 @@ header{
 .lh-1{
     line-height: 13px !important;
 }
-
+.haha{
+    text-shadow: 2px 2px 4px #999;
+}
 .bg-home{
     background: rgb(255 255 255 / 86%) !important;
 }

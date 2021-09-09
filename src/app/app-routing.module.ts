@@ -24,12 +24,12 @@ const routes: Routes = [
  
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data:{active:"Home"} },
  
-  { path: 'support', component: SupportComponent, canActivate: [AuthGuard], data:{active:"Support"} },
-  { path: 'support/:ticket', component: SupportDetailComponent, canActivate: [AuthGuard], data:{active:"Support"} },
+  { path: 'support', component: SupportComponent, canActivate: [AuthGuard], data:{active:"Layanan Warga"} },
+  { path: 'support/:ticket', component: SupportDetailComponent, canActivate: [AuthGuard], data:{active:"Layanan Warga"} },
  
-  { path: 'support/form', component: SupportFormComponent, canActivate: [AuthGuard], data:{active:"Support"} },
-  { path: 'support/form/izin', component: IzinFormComponent, canActivate: [AuthGuard], data:{active:"Support"} },
-  { path: 'support/form/renovasi', component: RenovasiFormComponent, canActivate: [AuthGuard], data:{active:"Support"} },
+  { path: 'support/form', component: SupportFormComponent, canActivate: [AuthGuard], data:{active:"Layanan Warga"} },
+  { path: 'support/form/izin', component: IzinFormComponent, canActivate: [AuthGuard], data:{active:"Layanan Warga"} },
+  { path: 'support/form/renovasi', component: RenovasiFormComponent, canActivate: [AuthGuard], data:{active:"Layanan Warga"} },
 
   { path: 'panic', component: PanicComponent, canActivate: [AuthGuard], data:{active:"Panic"} },
   { path: 'cms/category/:id', component: CmsComponent, canActivate: [AuthGuard], data:{active:"Article"} },

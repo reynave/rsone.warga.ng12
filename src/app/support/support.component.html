@@ -22,7 +22,7 @@
                         <div class="col-9">
                             <small> Request by: {{item.request_name}}</small>
                         </div>
-                        <div class="col-3 text-right"> <small> {{item.status_name}} </small>  <a *ngIf="item.supportStatusId == 1" role="button" (click)="draftDelete(item.ticketNumber)"><i class="fas fa-trash-alt text-danger"></i></a></div>
+                        <div class="col-3 text-right"> <small> {{item.status_name}} </small> <a *ngIf="item.supportStatusId == 1" role="button" (click)="draftDelete(item.ticketNumber)"><i class="fas fa-trash-alt text-danger"></i></a></div>
                     </div>
                 </div>
             </div>
@@ -203,21 +203,27 @@
 </div>
 <!-- untuk support request -->
 <div class="p-2 button-bottom text-center border-top shadow-sm">
-    <button class="btn btn-success btn-block" (click)="open(modalNewRequest)">New Support Request</button>
+    <button class="btn btn-success btn-block" (click)="open(modalNewRequest)">Permitaan Layanan Warga</button>
 </div>
-
-
+ 
 <ng-template #modalNewRequest let-modal>
     <div class="modal-header">
-        <strong class="modal-title" id="modal-basic-title">New Support Request</strong>
+        <strong class="modal-title" id="modal-basic-title">Permitaan Layanan Warga</strong>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <p><button class="btn btn-warning btn-block rounded-pill py-3" (click)="onCreateTicket(1)"><b>General</b></button></p>
-        <p><button class="btn btn-warning btn-block rounded-pill py-3" (click)="onCreateTicket(2)"><b>Izin</b></button></p>
-        <p><button class="btn btn-warning btn-block rounded-pill py-3" (click)="onCreateTicket(4)"><b>Renovasi</b></button></p>
+        <button class="btn btn-light rounded shadow-sm border btn-block mb-2  py-3" (click)="onCreateTicket(1)">
+            <img src="./assets/images/icons8-questions-64.png" width="50" class="mx-2"> <b>UMUM</b></button>
+ 
+       <button class="btn btn-light rounded shadow-sm border btn-block mb-2  py-3" (click)="onCreateTicket(2)">
+        <img src="./assets/images/icons8-agreement-64.png" width="50" class="mx-2"> <b>IZIN</b></button>
+
+
+        <button class="btn btn-light rounded shadow-sm border btn-block mb-2  py-3" (click)="onCreateTicket(4)">
+            <img src="./assets/images/icons8-hammer-64.png" width="50" class="mx-2"> <b>RENOVASI</b></button> 
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Close</button>

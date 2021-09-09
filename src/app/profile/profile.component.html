@@ -3,76 +3,197 @@
 
   <div class="page-wrapper">
 
-    <app-topside></app-topside>
+    <div class="navgatorTop border-bottom shadow-sm">
+      <div class="container-fluid">
+        <div class="row no-gutters ">
+          <div class="col-2 ">
+            <a href="javascript:;" (click)="back();"><img src="./assets/images/arrow-left.svg" width="20"></a>
+          </div>
+          <div class="col-10">
+            <strong>Profile </strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <div class="my-3">
 
       <div class="container-fluid">
 
-        <form (ngSubmit)="onUpdateSubmit()" #myFormUpdate="ngForm">
+
+
+        <table [hidden]="asUpdate || asPasswordUpdate">
+          <tr>
+            <td>User ID</td>
+            <Td>{{items.id}}</Td>
+          </tr>
+          <tr>
+            <td>username</td>
+            <Td>{{items.username}}</Td>
+          </tr>
+          <tr>
+            <td>No Rumah</td>
+            <Td>{{items.house}}</Td>
+          </tr>
+          <tr>
+            <td>RT/RW</td>
+            <Td>{{rtRw.no_rt}} / {{rtRw.no_rw}}</Td>
+          </tr>
+          <tr>
+            <td>Nama Ketua RT</td>
+            <Td>{{rtRw.rt}}</Td>
+          </tr>
+          <tr>
+            <td>Nama Ketua RW</td>
+            <Td>{{rtRw.rw}} </Td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <hr>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Nama</td>
+            <td>{{items.name}}</td>
+          </tr>
+
+          <tr>
+            <td>Email</td>
+            <td>{{items.email}}</td>
+          </tr>
+          <tr>
+            <td>KTP</td>
+            <td>{{items.ktp}}</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>{{items.phone_1}}</td>
+          </tr>
+          <tr>
+            <td>Status User</td>
+            <td>{{items.access_name}}</td>
+          </tr>
+
+          <tr>
+            <td>Password</td>
+            <td>
+              <a href="javascript:;" (click)="asPasswordUpdate = true;">Ganti Password</a>
+            </td>
+          </tr>
+
+          <tr>
+            <td> Perbarui Profil </td>
+            <td>
+              <button type="button" (click)="asUpdate=true;" class="btn btn-sm btn-info">Update Profile</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td> Keluar</td>
+            <td> <button type="button" class="btn btn-sm btn-dark" (click)="logout()">Logout</button></td>
+          </tr>
+
+        </table>
+
+
+
+
+
+
+
+        <form (ngSubmit)="onUpdateSubmit()" [hidden]="!asUpdate" class="mb-5" #myFormUpdate="ngForm">
           <div class="form-group">
-            <label for="name">USER ID</label> 
+            <label for="name">USER ID</label>
             <div class="form-control form-control-sm alert-secondary">{{items.id}}</div>
           </div>
           <div class="form-group">
-            <label for="name">USERNAME</label> 
+            <label for="name">USERNAME</label>
             <div class="form-control form-control-sm alert-secondary">{{items.username}}</div>
           </div>
           <div class="form-group">
-            <label for="name">Residence</label> 
+            <label for="name">Residence</label>
             <div class="form-control form-control-sm alert-secondary">{{items.house}}</div>
           </div>
           <div class="form-group">
             <label for="name">Name</label>
-            <div class="form-control form-control-sm alert-secondary">{{items.user_name}}</div>
+            <div class="form-control form-control-sm alert-secondary">{{items.name}}</div>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
             <input id="email" name="email" type="text" required readonly [(ngModel)]="model.email" #email="ngModel" class="form-control form-control-sm" value="{{items.email}}">
           </div>
           <div class="form-group">
-            <label for="email">KTP</label>
-            <input id="email" name="ktp" type="text" [(ngModel)]="model.ktp" #ktp="ngModel" class="form-control form-control-sm" value="{{items.ktp}}">
+            <label for="ktp">KTP</label>
+            <input id="ktp" name="ktp" type="text" [(ngModel)]="model.ktp" #ktp="ngModel" class="form-control form-control-sm" value="{{items.ktp}}">
             <div [hidden]="ktp.valid || ktp.pristine" class="mt-2 text-danger">
               ktp is required
             </div>
           </div>
           <div class="form-group">
-            <label for="email">Phone</label>
-            <input id="email" name="phone_1" type="text" [(ngModel)]="model.phone_1" #phone_1="ngModel" class="form-control form-control-sm" value="{{items.phone_1}}" maxlength="20">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone_1" type="text" [(ngModel)]="model.phone_1" #phone_1="ngModel" class="form-control form-control-sm" value="{{items.phone_1}}" maxlength="20">
             <div [hidden]="phone_1.valid || phone_1.pristine" class="mt-2 text-danger">
               phone is required
             </div>
           </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input id="password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" class="form-control form-control-sm">
-          </div>
+         
           <div class="form-group">
             <label for="access_right">Login As </label>
-            <div class="form-control form-control-sm alert-secondary">{{items.access_name}}</div> 
+            <div class="form-control form-control-sm alert-secondary">{{items.access_name}}</div>
           </div>
           <div *ngIf="success" class="alert alert-success alert-dismissible fade show" role="alert">
             Profile has been successfully updated!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="row">
-            <div class="col">
-              <button type="button" class="btn btn-outline-secondary btn-block" (click)="logout()">Logout</button>
-            </div>
-            <div class="col"> 
-              <button name="submit" type="submit" class="btn btn-primary btn-block">Update</button>
+          <br>
+          <div class="fix border-top shadow-sm">
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark btn-block" (click)="asUpdate = false;">Kembali</button>
+              </div>
+              <div class="col">
+                <button name="submit" type="submit" class="btn btn-primary btn-block">Update</button>
+              </div>
             </div>
           </div>
 
         </form>
+
+        <form (ngSubmit)="onUpdatePassword()" [hidden]="!asPasswordUpdate" class="mb-5" #myFormUpdate="ngForm">
+
+          <div class="form-group">
+            <label for="password">Password Baru</label>
+            <input id="password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" class="form-control form-control-sm">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Konfirmasi Password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" [(ngModel)]="model.confirmPassword" #password="ngModel" class="form-control form-control-sm">
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-outline-dark btn-block" (click)="asPasswordUpdate = false;">Kembali</button>
+              </div>
+              <div class="col">
+                <button name="submit" type="submit" class="btn btn-warning btn-block">Update</button>
+              </div>
+            </div>
+          </div>
+
+
+        </form>
+
+
       </div>
 
     </div>
 
-    <app-footer></app-footer>
 
   </div>
 </div>

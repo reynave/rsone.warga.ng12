@@ -54,9 +54,9 @@ export class HomeComponent implements OnInit {
   loading : boolean = false;
   panic : any = [];
   onPanic(){
-    if(confirm("Panic button ?")){
+    if(confirm("Pangilan darurat ?")){
       this.loading = true;
-      this.panic = "Calling...";
+      this.panic = "Sedang dikirim...";
       this.http.get<any>(this.url).subscribe(
         data => { 
           console.log(data);

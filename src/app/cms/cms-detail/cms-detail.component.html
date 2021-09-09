@@ -3,14 +3,26 @@
 
     <div class="page-wrapper bg-white">
 
-        <app-topside></app-topside>
+      <div class="navgatorTop border-bottom shadow-sm">
+        <div class="container-fluid"> 
+            <div class="row no-gutters ">
+                <div class="col-2 ">
+                    <a href="javascript:;" (click)="back();"><img src="./assets/images/arrow-left.svg" width="20"></a>
+                </div>
+                <div class="col-10">
+                    <strong>{{category}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
         <div class="container-fluid">
           <div class="row">
               <div class="col-12 my-3">
                 <h5>{{items.name}}</h5>
 
-                <p class="text-small">By : {{items.user_name}}, {{items.input_date | date:'HH/MM/yyyy HH:mm:ss'}}</p>
+                <p class="text-small">Publikasi  : {{items.input_date | date}}</p>
     
                 <article [innerHtml]="items.content"></article>
               </div>
