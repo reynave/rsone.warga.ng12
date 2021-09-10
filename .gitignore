@@ -4,9 +4,9 @@
 /dist
 
 
-# update from Hasan (all environment files is not ignored).
+# update from Hasan (all environment files is still pulled from git pull).
 /src/environments/*
-angular.json
+angular*.json
 
 
 /tmp
