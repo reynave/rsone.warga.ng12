@@ -49,6 +49,7 @@ export class ProfileComponent implements OnInit {
       data => {
         console.log(data);
         this.items = data['items'];
+        this.model = this.items;
         this.rtRw = data['rtRw'];
       },
       error => {
