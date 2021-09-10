@@ -6,7 +6,7 @@
 
 # update from Hasan (all environment files is still pulled from git pull).
 /src/environments/*
-angular*.json
+angular.json
 
 
 /tmp
