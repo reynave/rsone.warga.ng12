@@ -182,16 +182,18 @@ export class SupportDetailComponent implements OnInit {
     const body = {
       data : {subject : this.modelform.f1, note : this.obj.note, supportFormId : this.obj.supportFormId, ticketNumber : this.obj.ticketNumber},
     }
-    
-    this.http.post<any>(environment.api + "support/onSubmit", body, {
-       headers: this.configService.headers()
-    }).subscribe(
-       data => { 
-         this.router.navigate(['support']);
-       },
-       error => {
-         console.log(error);
-    });
+
+    if(confirm("Anda yakin ingin memproses layanan warga ini? Pastikan data sudah terinput dengan benar.")){    
+        this.http.post<any>(environment.api + "support/onSubmit", body, {
+            headers: this.configService.headers()
+        }).subscribe(
+            data => { 
+               this.router.navigate(['support']);
+            },
+            error => {
+               console.log(error);
+        });
+    }
  }
 
   rt_read(obj: any) {
@@ -251,9 +253,20 @@ export class SupportDetailComponent implements OnInit {
     window.history.back();
   }
 
+  onDateRangeValid(){
+      let fromDate = Date.parse(this.modelform.f9);
+      let toDate = Date.parse(this.modelform.f10);
+      if(fromDate >= toDate || fromDate === toDate ){
+         alert('Jangkauan tanggal salah! Mohon pilih tanggal dengan benar.');
+      }
+      console.log(fromDate);
+      console.log(toDate);
+      // https://esausilva.com/2017/04/20/date-range-validation-in-javascript-es5-and-one-liner-es6/
+  }
+
   draftDelete(ticketNumber: string){
 
-    if(!confirm("Are you sure?")){
+    if(!confirm("Anda yakin?")){
        return false;
     }
 

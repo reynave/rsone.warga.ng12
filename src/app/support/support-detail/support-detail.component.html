@@ -6,9 +6,9 @@
         <div class="card">
             <div class="card-body">
               <form id="form-input" #myFormUpdate="ngForm"><!--  (ngSubmit)="onSubmit()" -->
-              <h5 class="mb-2">Detail Support Request</h5>
-                <div class="mb-1 bb-silver">
-                    <label for="text" class="form-label text-bold">CASE Number</label>
+              <h5 class="mb-2">{{ obj.status_name == 'Draft' ? 'Form' : 'Detail' }} Layanan Warga</h5>
+                <div class="mb-3 bb-silver">
+                    <label for="text" class="form-label text-bold">Nomor Tiket</label>
                     <div class="text-readonly">{{obj.ticketNumber}}</div>
                 </div>
                 <div *ngIf="obj.supportFormId == '1'">
@@ -24,14 +24,14 @@
                     <option [value] = "'Bantuan Perapihan Pohon'" value="Bantuan Perapihan Pohon">Bantuan Perapihan Pohon</option>
                     <option [value] = "'Bantuan Fasilitas Umum'" value="Bantuan Fasilitas Umum">Bantuan Fasilitas Umum</option>
                 </select>
-                <p id="f1_saved" style="display:none">Saved...</p>
+                <p id="f1_saved" style="display:none">Tersimpan...</p>
                 <div *ngIf="is_readonly" class="text-readonly">{{obj.f1}}</div>
              </div>
 
               <div class="mb-3">
                   <label class="form-label">Subject</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="subject" required [(ngModel)]="model.subject" name="subject" #subject="ngModel" (change)="onAutoSave('subject',model.subject)" [readonly]="is_readonly">
-                  <p id="subject_saved" style="display:none">Saved...</p>
+                  <p id="subject_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="subject.valid || subject.pristine" class="mt-2 text-danger">
                         subject is required
                   </div>
@@ -39,7 +39,7 @@
               <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Note</label>
                   <input id="note" type="text" name="note" required [(ngModel)]="model.note" class="form-control{{plaintext}} form-control-sm" #note="ngModel" (change)="onAutoSave('note',model.note)" [readonly]="is_readonly">
-                  <p id="note_saved" style="display:none">Saved...</p>
+                  <p id="note_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="note.valid || note.pristine" class="mt-2 text-danger">
                         note is required
                   </div>
@@ -55,13 +55,13 @@
               <div class="mb-3">
                   <label class="form-label">No. TLP</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f4="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)" [readonly]="is_readonly">
-                  <p id="f4_saved" style="display:none">Saved...</p>
+                  <p id="f4_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Unit</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f4" required [(ngModel)]="modelform.f4" name="f4" #f4="ngModel" (change)="onAutoSaveForm('f4',modelform.f4)" [readonly]="is_readonly">
-                  <p id="f4_saved" style="display:none">Saved...</p>
+                  <p id="f4_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f4.valid || f4.pristine" class="mt-2 text-danger">
                         unit is required
                   </div>
@@ -72,31 +72,31 @@
               <div class="mb-3">
                   <label class="form-label">Nama Pemilik</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f5" required [(ngModel)]="modelform.f5" name="f5" #f5="ngModel" (change)="onAutoSaveForm('f5',modelform.f5)" [readonly]="is_readonly">
-                  <p id="f5_saved" style="display:none">Saved...</p>
+                  <p id="f5_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">No. Tlp/Hp</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f6" required [(ngModel)]="modelform.f6" name="f6" #f6="ngModel" (change)="onAutoSaveForm('f6',modelform.f6)" [readonly]="is_readonly">
-                  <p id="f6_saved" style="display:none">Saved...</p>
+                  <p id="f6_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Unit</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f7" required [(ngModel)]="modelform.f7" name="f7" #f6="ngModel" (change)="onAutoSaveForm('f7',modelform.f7)" [readonly]="is_readonly">
-                  <p id="f7_saved" style="display:none">Saved...</p>
+                  <p id="f7_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Hasil pemeriksaan</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f8" required [(ngModel)]="modelform.f8" name="f8" #f8="ngModel" (change)="onAutoSaveForm('f8',modelform.f8)" [readonly]="is_readonly">
-                  <p id="f8_saved" style="display:none">Saved...</p>
+                  <p id="f8_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Tanggal pemeriksaan</label>
                   <input type="date" class="form-control{{plaintext}} form-control-sm" id="f9" required [(ngModel)]="modelform.f9" name="f9" #f9="ngModel" (change)="onAutoSaveForm('f9',modelform.f9)" maxlength="10" [readonly]="is_readonly" maxlength="4">
-                  <p id="f9_saved" style="display:none">Saved...</p>
+                  <p id="f9_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <p><strong>Tetanggal Sisi Kiri</strong></p>
@@ -104,31 +104,31 @@
               <div class="mb-3">
                   <label class="form-label">Nama Pemilik</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f10" required [(ngModel)]="modelform.f10" name="f10" #f10="ngModel" (change)="onAutoSaveForm('f10',modelform.f10)" [readonly]="is_readonly">
-                  <p id="f10_saved" style="display:none">Saved...</p>
+                  <p id="f10_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">No. Tlp/Hp</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f11" required [(ngModel)]="modelform.f11" name="f11" #f11="ngModel" (change)="onAutoSaveForm('f11',modelform.f11)" [readonly]="is_readonly">
-                  <p id="f11_saved" style="display:none">Saved...</p>
+                  <p id="f11_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Unit</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f12" required [(ngModel)]="modelform.f12" name="f12" #f12="ngModel" (change)="onAutoSaveForm('f12',modelform.f12)" [readonly]="is_readonly">
-                  <p id="f12_saved" style="display:none">Saved...</p>
+                  <p id="f12_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Hasil pemeriksaan</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f13" required [(ngModel)]="modelform.f13" name="f13" #f13="ngModel" (change)="onAutoSaveForm('f13',modelform.f13)" [readonly]="is_readonly">
-                  <p id="f13_saved" style="display:none">Saved...</p>
+                  <p id="f13_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Tanggal pemeriksaan</label>
                   <input type="date" class="form-control{{plaintext}} form-control-sm" id="f14" required [(ngModel)]="modelform.f14" name="f14" #f14="ngModel" (change)="onAutoSaveForm('f14',modelform.f14)" [readonly]="is_readonly" maxlength="4">
-                  <p id="f14_saved" style="display:none">Saved...</p>
+                  <p id="f14_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <p><strong>Tetanggal Sisi Belakang Kanan</strong></p>
@@ -136,31 +136,31 @@
               <div class="mb-3">
                   <label class="form-label">Nama Pemilik</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f15" required [(ngModel)]="modelform.f15" name="f15" #f15="ngModel" (change)="onAutoSaveForm('f15',modelform.f15)" [readonly]="is_readonly">
-                  <p id="f15_saved" style="display:none">Saved...</p>
+                  <p id="f15_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">No. Tlp/Hp</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f16" required [(ngModel)]="modelform.f16" name="f16" #f16="ngModel" (change)="onAutoSaveForm('f16',modelform.f16)" [readonly]="is_readonly">
-                  <p id="f16_saved" style="display:none">Saved...</p>
+                  <p id="f16_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Unit</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f17" required [(ngModel)]="modelform.f17" name="f17" #f17="ngModel" (change)="onAutoSaveForm('f17',modelform.f17)" [readonly]="is_readonly">
-                  <p id="f17_saved" style="display:none">Saved...</p>
+                  <p id="f17_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Hasil pemeriksaan</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f18" required [(ngModel)]="modelform.f18" name="f18" #f18="ngModel" (change)="onAutoSaveForm('f18',modelform.f18)" [readonly]="is_readonly">
-                  <p id="f18_saved" style="display:none">Saved...</p>
+                  <p id="f18_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Tanggal pemeriksaan</label>
                   <input type="date" class="form-control{{plaintext}} form-control-sm" id="f19" required [(ngModel)]="modelform.f19" name="f19" #f19="ngModel" (change)="onAutoSaveForm('f19',modelform.f19)" [readonly]="is_readonly" maxlength="4">
-                  <p id="f19_saved" style="display:none">Saved...</p>
+                  <p id="f19_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <p><strong>Tetanggal Sisi Belakang Kiri</strong></p>
@@ -168,31 +168,31 @@
               <div class="mb-3">
                   <label class="form-label">Nama Pemilik</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f20" required [(ngModel)]="modelform.f20" name="f20" #f20="ngModel" (change)="onAutoSaveForm('f20',modelform.f20)" [readonly]="is_readonly">
-                  <p id="f20_saved" style="display:none">Saved...</p>
+                  <p id="f20_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">No. Tlp/Hp</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f21" required [(ngModel)]="modelform.f21" name="f21" #f21="ngModel" (change)="onAutoSaveForm('f21',modelform.f21)" [readonly]="is_readonly">
-                  <p id="f21_saved" style="display:none">Saved...</p>
+                  <p id="f21_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Unit</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f22" required [(ngModel)]="modelform.f22" name="f22" #f22="ngModel" (change)="onAutoSaveForm('f22',modelform.f22)" [readonly]="is_readonly">
-                  <p id="f22_saved" style="display:none">Saved...</p>
+                  <p id="f22_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Hasil pemeriksaan</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f23" required [(ngModel)]="modelform.f23" name="f23" #f23="ngModel" (change)="onAutoSaveForm('f23',modelform.f23)" [readonly]="is_readonly">
-                  <p id="f23_saved" style="display:none">Saved...</p>
+                  <p id="f23_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Tanggal pemeriksaan</label>
                   <input type="date" class="form-control{{plaintext}} form-control-sm" id="f24" required [(ngModel)]="modelform.f24" name="f24" #f24="ngModel" (change)="onAutoSaveForm('f24',modelform.f24)" [readonly]="is_readonly" maxlength="4">
-                  <p id="f24_saved" style="display:none">Saved...</p>
+                  <p id="f24_saved" style="display:none">Tersimpan...</p>
               </div>
 
               </ng-container>
@@ -221,7 +221,7 @@
                   <label class="form-label">No. KTP</label>
                   <div class="text-readonly">{{obj.f3}}</div>
                   <!--<input type="text" class="form-control{{plaintext}} form-control-sm" id="f3" required [(ngModel)]="modelform.f3" name="f3" #f3="ngModel" (change)="onAutoSaveForm('f3',modelform.f3)" [readonly]="true">
-                  <p id="f3_saved" style="display:none">Saved...</p>
+                  <p id="f3_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f3.valid || f3.pristine" class="mt-2 text-danger">
                         no ktp is required
                   </div>-->
@@ -231,7 +231,7 @@
                   <label class="form-label">No. TLP</label>
                   <div class="text-readonly">{{obj.f4}}</div>
                   <!--<input type="text" class="form-control{{plaintext}} form-control-sm" id="f4" required [(ngModel)]="modelform.f4" name="f4" #f4="ngModel" (change)="onAutoSaveForm('f4',modelform.f4)" [readonly]="true">
-                  <p id="f4_saved" style="display:none">Saved...</p>
+                  <p id="f4_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f4.valid || f4.pristine" class="mt-2 text-danger">
                         no tlp is required
                   </div>-->
@@ -240,7 +240,7 @@
               <div class="mb-3">
                   <label class="form-label">Selaku</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f5" required [(ngModel)]="modelform.f5" name="f5" #f5="ngModel" (change)="onAutoSaveForm('f5',modelform.f5)" [readonly]="is_readonly">
-                  <p id="f5_saved" style="display:none">Saved...</p>
+                  <p id="f5_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f5.valid || f5.pristine" class="mt-2 text-danger">
                         selaku is required
                   </div>
@@ -250,7 +250,7 @@
                   <label class="form-label">Unit</label>
                   <div class="text-readonly">{{obj.f6}}</div>
                   <!--<input type="text" class="form-control{{plaintext}} form-control-sm" id="f6" required [(ngModel)]="modelform.f6" name="f6" #f6="ngModel" (change)="onAutoSaveForm('f6',modelform.f6)" [readonly]="true">
-                  <p id="f6_saved" style="display:none">Saved...</p>
+                  <p id="f6_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f6.valid || f6.pristine" class="mt-2 text-danger">
                         unit is required
                   </div>-->
@@ -259,7 +259,7 @@
               <div class="mb-3">
                   <label class="form-label">Instansi</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f7" required [(ngModel)]="modelform.f7" name="f7" #f7="ngModel" (change)="onAutoSaveForm('f7',modelform.f7)" [readonly]="is_readonly">
-                  <p id="f7_saved" style="display:none">Saved...</p>
+                  <p id="f7_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f7.valid || f7.pristine" class="mt-2 text-danger">
                         instansi is required
                   </div>
@@ -268,7 +268,7 @@
               <div class="mb-3">
                   <label class="form-label">Keperluan</label>
                   <input type="text" class="form-control{{plaintext}} form-control-sm" id="f8" required [(ngModel)]="modelform.f8" name="f8" #f8="ngModel" (change)="onAutoSaveForm('f8',modelform.f8)" [readonly]="is_readonly">
-                  <p id="f8_saved" style="display:none">Saved...</p>
+                  <p id="f8_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f8.valid || f8.pristine" class="mt-2 text-danger">
                         keperluan is required
                   </div>
@@ -277,7 +277,7 @@
               <div class="mb-3">
                   <label class="form-label">Jenis Barang</label>
                   <textarea *ngIf="!is_readonly" class="form-control" id="f9" required [(ngModel)]="modelform.f9" name="f9" #f9="ngModel" cols="10" rows="8" (change)="onAutoSaveForm('f9',modelform.f9)" [readonly]="is_readonly"></textarea>
-                  <p id="f9_saved" style="display:none">Saved...</p>
+                  <p id="f9_saved" style="display:none">Tersimpan...</p>
                   <div *ngIf="is_readonly" class="text-readonly">{{ obj.f9}}</div>
               </div>
 
@@ -299,7 +299,7 @@
               <div class="mb-3">
                   <label class="form-label">Alamat</label>
                   <input type="text" class="form-control{{plaintext}}" id="f2" required [(ngModel)]="modelform.f2" name="f2" #f2="ngModel" (change)="onAutoSaveForm('f2',modelform.f2)" [readonly]="is_readonly">
-                  <p id="f2_saved" style="display:none">Saved...</p>
+                  <p id="f2_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f2.valid || f2.pristine" class="mt-2 text-danger">
                         name is required
                   </div>
@@ -314,7 +314,7 @@
               <div class="mb-3">
                   <label class="form-label">Jenis Renovasi</label>
                   <input type="text" class="form-control{{plaintext}}" id="f4" required [(ngModel)]="modelform.f4" name="f4" #f4="ngModel" cols="10" rows="8" (change)="onAutoSaveForm('f4',modelform.f4)" [readonly]="is_readonly">
-                  <p id="subject_saved" style="display:none">Saved...</p>
+                  <p id="subject_saved" style="display:none">Tersimpan...</p>
                   <div [hidden]="f4.valid || f4.pristine" class="mt-2 text-danger">
                         jenis renovasi is required
                   </div>
@@ -325,59 +325,59 @@
               <div class="mb-3">
                   <label class="form-label">Nama</label>
                   <input type="text" class="form-control{{plaintext}}" id="f5" required [(ngModel)]="modelform.f5" name="f5" #f5="ngModel" (change)="onAutoSaveForm('f5',modelform.f5)" [readonly]="is_readonly">
-                  <p id="f5_saved" style="display:none">Saved...</p>
+                  <p id="f5_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Alamat</label>
                   <input type="text" class="form-control{{plaintext}}" id="f6" required [(ngModel)]="modelform.f6" name="f6" #f6="ngModel" (change)="onAutoSaveForm('f6',modelform.f6)" [readonly]="is_readonly">
-                  <p id="f6_saved" style="display:none">Saved...</p>
+                  <p id="f6_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">KTP</label>
                   <input type="text" class="form-control{{plaintext}}" id="f7" required [(ngModel)]="modelform.f7" name="f3" #f7="ngModel" (change)="onAutoSaveForm('f7',modelform.f7)" [readonly]="is_readonly">
-                  <p id="f7_saved" style="display:none">Saved...</p>
+                  <p id="f7_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
-                  <label class="form-label">Telephone / HP</label>
+                  <label class="form-label">Telepon / HP</label>
                   <input type="text" class="form-control{{plaintext}}" id="f8" required [(ngModel)]="modelform.f8" name="f8" #f3="ngModel" (change)="onAutoSaveForm('f8',modelform.f8)" [readonly]="is_readonly">
-                  <p id="f8_saved" style="display:none">Saved...</p>
+                  <p id="f8_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <p><strong>Waktu Renovasi</strong><p>
 
               <div class="mb-3">
                   <label class="form-label">Dari tanggal</label>
-                  <input type="date" class="form-control{{plaintext}}" id="f9" required [(ngModel)]="modelform.f9" name="f9" #f9="ngModel" maxlength="10" (change)="onAutoSaveForm('f9',modelform.f9)" [readonly]="is_readonly">
-                  <p id="f9_saved" style="display:none">Saved...</p>
+                  <input type="date" class="form-control{{plaintext}}" id="f9" required [(ngModel)]="modelform.f9" name="f9" #f9="ngModel" (change)="onAutoSaveForm('f9',modelform.f9)" maxlength="10" [readonly]="is_readonly" maxlength="10">
+                  <p id="f9_saved" style="display:none">Tersimpan...</p>
               </div>
 
               <div class="mb-3">
                   <label class="form-label">Sampai tanggal</label>
-                  <input type="date" class="form-control{{plaintext}}" id="f10" required [(ngModel)]="modelform.f10" name="f10" #f10="ngModel" maxlength="10" (change)="onAutoSaveForm('f10',modelform.f10)" [readonly]="is_readonly">
-                  <p id="f10_saved" style="display:none">Saved...</p>
+                  <input type="date" class="form-control{{plaintext}}" id="f10" required [(ngModel)]="modelform.f10" name="f10" #f10="ngModel" (change)="onAutoSaveForm('f10',modelform.f10)" maxlength="10" (blur)="onDateRangeValid()" [readonly]="is_readonly" maxlength="10">
+                  <p id="f10_saved" style="display:none">Tersimpan...</p>
               </div>
 
                     </div>
 
                     <div class="mb-1">
-                        <label for="input_date" class="form-label text-bold">Request Date</label>
+                        <label for="input_date" class="form-label text-bold">Tanggal Permintaan</label>
                         <input *ngIf="obj.status_name == 'Open' || obj.status_name == 'Closed' || obj.status_name == 'In-progress'" type="text" readonly class="form-control-plaintext" value="{{obj.input_date | date:'dd/MM/yyyy H:mm:ss'}}" />
                         <div *ngIf="obj.status_name == 'Draft'" class="text-readonly">{{today | date:'dd/MM/yyyy HH:mm:ss'}}</div>
                     </div>
 
-                    <div class="mb-1" *ngIf="obj.approval_status == '1'">
+                    <div class="mb-1" *ngIf="obj.approval_status == '1' || is_read">
                         <p class="text-success"><i class="fas fa-user-check"></i> Read by RT {{read_by}} {{obj.read_by}}</p>
                     </div>
                     <div class="d-grid text-center">
                                                
-                        <button *ngIf="action.rt == '1' && obj.supportStatusId == '10' && obj.read && !is_read" class="btn btn-success m-1" (click)="rt_read(obj)"><i class="fas fa-check"></i> RT Read</button><!-- *ngIf="id_user_access == 9697 && (obj.approval_status == null || obj.approval_status == 0) && !is_read" -->
+                        <button *ngIf="action.rt == '1' && action.read && !is_read" class="btn btn-success m-1" (click)="rt_read(obj)"><i class="fas fa-check"></i> RT Read</button><!-- *ngIf="id_user_access == 9697 && (obj.approval_status == null || obj.approval_status == 0) && !is_read" -->
                         
                         <button *ngIf="id_user_access == 9698 && (obj.approval_status == null || obj.approval_status == 0)" class="btn btn-success  m-1" (click)="rt_approved(obj)"><i class="fas fa-check"></i> RT Approved</button>
                         
-                        <a *ngIf="is_print == '1'" role="button" class="btn btn-info text-light  m-1" (click)="goToLink(new_tab)"><i class="fas fa-print"></i> Print</a>
+                        <a *ngIf="obj.status_name != 'Draft'" role="button" class="btn btn-info text-light  m-1" (click)="goToLink(new_tab)"><i class="fas fa-print"></i> Print</a>
 
                     </div>
                 </form>
@@ -390,5 +390,5 @@
 
 <div *ngIf="showButton" class="p-2 button-bottom text-center border-top shadow-sm">
     <button *ngIf="!is_readonly" type="submit" class="btn btn-warning btn-block" (click)="onSubmit()" [disabled]="!myFormUpdate.form.valid">Submit</button>
-    <button *ngIf="obj.supportStatusId == 1" type="button" class="btn btn-danger btn-block" (click)="draftDelete(obj.ticketNumber)">Delete</button>
+    <button *ngIf="obj.supportStatusId == 1" type="button" class="btn btn-danger btn-block" (click)="draftDelete(obj.ticketNumber)">Hapus</button>
 </div>

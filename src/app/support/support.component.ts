@@ -182,7 +182,7 @@ export class SupportComponent implements OnInit {
 
   draftDelete(ticketNumber: string){
 
-    if(!confirm("Are you sure you want to delete draft ticket "+ticketNumber+" ?")){
+    if(!confirm("Anda yakin ingin menghapus data layanan warga dengan nomor tiket "+ticketNumber+" ?")){
        return false;
     }
 
@@ -196,8 +196,10 @@ export class SupportComponent implements OnInit {
       data => {
         //this.modalService.dismissAll();
         if(data.denied){
-           alert('This draft data cannot be deleted because you\'re not support requester!');
-           console.error('This draft data cannot be deleted because you\'re not support requester!');
+           //alert('This draft data cannot be deleted because you\'re not support requester!');
+           //console.error('This draft data cannot be deleted because you\'re not support requester!');
+           alert('Data pelayanan warga tidak bisa terhapus karena data tersebut bukan Anda yang input!');
+           console.error('Data pelayanan warga tidak bisa terhapus karena data tersebut bukan Anda yang input!');
         } else {
            window.location.reload(true);
            console.info("Deleted");

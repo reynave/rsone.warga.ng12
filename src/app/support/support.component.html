@@ -181,7 +181,7 @@
                     </div>
 
                     <div class="mb-1">
-                        <label for="input_date" class="form-label text-bold">Created Date {{obj.SupportFormId}}</label>
+                        <label for="input_date" class="form-label text-bold">Created Date</label>
                         <input type="text" readonly class="form-control-plaintext" value="{{obj.input_date | date:'dd/MM/yyyy H:mm:ss'}}" />
                     </div>
                     <div class="mb-1" *ngIf="obj.approval_status == 1 || is_read">
