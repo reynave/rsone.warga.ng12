@@ -104,7 +104,7 @@
 
 
 
-        <form (ngSubmit)="onUpdateSubmit()" [hidden]="!asUpdate" class="mb-5" #myFormUpdate="ngForm">
+        <form (ngSubmit)="onUpdateSubmit()" [hidden]="!asUpdate" class="mb-5" #heroForm="ngForm">
           <div class="form-group">
             <label for="name">USER ID</label>
             <div class="form-control form-control-sm alert-secondary">{{items.id}}</div>
@@ -118,28 +118,35 @@
             <div class="form-control form-control-sm alert-secondary">{{items.house}}</div>
           </div>
           <div class="form-group">
-            <label for="name">Name</label>
-            <div class="form-control form-control-sm alert-secondary">{{items.name}}</div>
+            <label for="name">Nama Lengkap</label>
+            <input id="name" name="name" type="text" required [(ngModel)]="model.name" #name="ngModel" class="form-control form-control-sm">
+            <div [hidden]="name.valid || name.pristine"  class="text-danger">
+              Nama tidak boleh kosong
+            </div>
+
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" name="email" type="text" required readonly [(ngModel)]="model.email" #email="ngModel" class="form-control form-control-sm" value="{{items.email}}">
+            <input id="email" name="email" type="text" required [(ngModel)]="model.email" #email="ngModel" class="form-control form-control-sm" email="true">
+            <div [hidden]="email.valid || email.pristine" class="text-danger">
+              Email tidak boleh kosong
+            </div>
           </div>
           <div class="form-group">
             <label for="ktp">KTP</label>
-            <input id="ktp" name="ktp" type="text" [(ngModel)]="model.ktp" #ktp="ngModel" class="form-control form-control-sm" value="{{items.ktp}}">
-            <div [hidden]="ktp.valid || ktp.pristine" class="mt-2 text-danger">
-              ktp is required
+            <input id="ktp" name="ktp" type="text" required [(ngModel)]="model.ktp" #ktp="ngModel" class="form-control form-control-sm">
+            <div [hidden]="ktp.valid || ktp.pristine" class="text-danger">
+              KTP tidak boleh kosong
             </div>
           </div>
           <div class="form-group">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone_1" type="text" [(ngModel)]="model.phone_1" #phone_1="ngModel" class="form-control form-control-sm" value="{{items.phone_1}}" maxlength="20">
-            <div [hidden]="phone_1.valid || phone_1.pristine" class="mt-2 text-danger">
-              phone is required
+            <label for="phone">Mobile Phone</label>
+            <input id="phone" name="phone_1" type="text" required [(ngModel)]="model.phone_1" #phone_1="ngModel" class="form-control form-control-sm"  maxlength="20">
+            <div [hidden]="phone_1.valid || phone_1.pristine"  class="text-danger">
+             No HP tidak boleh kosong
             </div>
           </div>
-         
+
           <div class="form-group">
             <label for="access_right">Login As </label>
             <div class="form-control form-control-sm alert-secondary">{{items.access_name}}</div>
@@ -157,7 +164,7 @@
                 <button type="button" class="btn btn-outline-dark btn-block" (click)="asUpdate = false;">Kembali</button>
               </div>
               <div class="col">
-                <button name="submit" type="submit" class="btn btn-primary btn-block">Update</button>
+                <button name="submit" type="submit" class="btn btn-primary btn-block" [disabled]="!heroForm.form.valid">Update</button>
               </div>
             </div>
           </div>
