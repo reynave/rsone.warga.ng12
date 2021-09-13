@@ -49,7 +49,7 @@
 
               <div class="mb-3">
                   <label class="form-label">Nama</label>
-                  <input type="text" class="form-control{{plaintext}} form-control-sm" id="f2" readonly [(ngModel)]="modelform.f2" name="f2" #f2="ngModel" (change)="onAutoSaveForm('f2',modelform.f2)" [readonly]="is_readonly">
+                  <input type="text" class="form-control{{plaintext}} form-control-sm" id="f2" [(ngModel)]="modelform.f2" name="f2" #f2="ngModel" (change)="onAutoSaveForm('f2',modelform.f2)" [readonly]="is_readonly">
               </div>
 
               <div class="mb-3">
@@ -389,6 +389,6 @@
 </div>
 
 <div *ngIf="showButton" class="p-2 button-bottom text-center border-top shadow-sm">
-    <button *ngIf="!is_readonly" type="submit" class="btn btn-warning btn-block" (click)="onSubmit()" [disabled]="!myFormUpdate.form.valid">Submit</button>
+    <button *ngIf="!is_readonly" type="submit" class="btn btn-warning btn-block" (click)="onSubmit()">Submit</button>
     <button *ngIf="obj.supportStatusId == 1" type="button" class="btn btn-danger btn-block" (click)="draftDelete(obj.ticketNumber)">Hapus</button>
 </div>
