@@ -27,6 +27,8 @@
 
                         <p class="text-small">Publikasi : {{items.start_date | date}}</p>
 
+                        <p><img class="img-fluid" style="width:100%" src="{{items.filename}}"/></p>
+
                         <article [innerHtml]="items.content"></article>
                     </div>
                 </div>

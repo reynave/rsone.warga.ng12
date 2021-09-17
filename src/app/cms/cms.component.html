@@ -25,6 +25,7 @@
             <div class="p-2">
                 <h6><a [routerLink]="[ '/cms/detail', item.id]">{{item.name}}</a></h6>
                 <div><small>Publikasi {{item.start_date | date}}</small></div>
+                <img class="img-fluid" style="width:100%" src="{{item.filename}}"/>
                 <p class="card-text text-small text-justify" [innerHTML]="item.content.substr(0,200)"></p>
                 <a [routerLink]="[ '/cms/detail', item.id]" class="text-small">Baca selengkapnya &hellip;</a>
             </div>
