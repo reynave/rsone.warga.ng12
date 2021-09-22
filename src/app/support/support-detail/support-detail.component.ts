@@ -120,7 +120,7 @@ export class SupportDetailComponent implements OnInit {
         else if (this.obj.supportFormId == '1') {
             fro = 'general';
         }
-        this.new_tab =  environment.apiAdmin + 'index/' + fro + '?ticket=' + (this.ticket ? this.ticket : '') + '&action=print';
+        this.new_tab =  environment.apiAdmin + 'index/' + fro + '?ticket=' + (this.ticket ? this.ticket : '') + '&action=print&t='+this.configService.token();
         console.log(data);
       },
       error => {
