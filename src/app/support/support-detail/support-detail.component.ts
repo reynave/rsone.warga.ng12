@@ -42,6 +42,11 @@ export class ModelForm {
     public f18: string,
     public f19: string,
     public f20: string,
+    public f21: string,
+    public f22: string,
+    public f23: string,
+    public f24: string,
+    public f25: string,
   ) { } 
 }
 
@@ -69,9 +74,10 @@ export class SupportDetailComponent implements OnInit {
   ticket :string;
   is_readonly: boolean = true;
   plaintext: string = '-plaintext';
-  modelform : any = new ModelForm(0,"","","","","","","","","","","","","","","","","","","","","");
+  modelform : any = new ModelForm(0,"","","","","","","","","","","","","","","","","","","","","","","","","","");
   model : any = new Model(0,"","",0,0);
   today: number = Date.now();
+  is_disabled: boolean = false;
   
   constructor(
     private modalService: NgbModal,
@@ -258,6 +264,15 @@ export class SupportDetailComponent implements OnInit {
       let toDate = Date.parse(this.modelform.f10);
       if(fromDate >= toDate || fromDate === toDate ){
          alert('Jangkauan tanggal salah! Mohon pilih tanggal dengan benar.');
+         this.modelform.f9 = "";
+         this.modelform.f10 = "";
+          this.onAutoSaveForm('f9',"");
+          this.onAutoSaveForm('f10',"");
+      } else {
+        if(this.modelform.f9 != null && this.modelform.f10 != null){
+          this.onAutoSaveForm('f9',this.modelform.f9);
+          this.onAutoSaveForm('f10',this.modelform.f10);
+        }
       }
       console.log(fromDate);
       console.log(toDate);
