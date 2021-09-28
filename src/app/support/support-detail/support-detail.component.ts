@@ -262,7 +262,7 @@ export class SupportDetailComponent implements OnInit {
   onDateRangeValid(){
       let fromDate = Date.parse(this.modelform.f9);
       let toDate = Date.parse(this.modelform.f10);
-      if(fromDate >= toDate || isNaN(toDate)){
+      if(fromDate > toDate || isNaN(toDate)){
          alert('Jangkauan tanggal salah! Mohon pilih tanggal dengan benar.');
          this.modelform.f10 = "";
       } else {
